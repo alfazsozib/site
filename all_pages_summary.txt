@@ -1,0 +1,456 @@
+==================================================
+ID: G0519698989 | Title: Header | Purl: header | Overlay: False | Pin: True
+CONTENT:
+<span style="color: rgba(255, 255, 255, 0.6);"><a href="mailto:pro.ayizih@gmail.com" rel="mailto" style="--font-scale: 1.63;">Email </a>  <a href="https://www.instagram.com/hiziyaribery7/" style="--font-scale: 1.63;">Instagram</a>  <a href="https://www.linkedin.com/in/hiziya-ribery-3b7682295" style="--font-scale: 1.63;" target="_blank">Linkedin</a></span>
+
+LOCAL_CSS:
+[id="G0519698989"] .page-content {
+	align-items: flex-start;
+}
+
+[id="G0519698989"].page {
+	--page-mix: difference;
+	min-height: var(--viewport-height);
+}
+
+.overlay-content:has([id="G0519698989"]) {
+	--overlay-mix: difference;
+}
+
+MEDIA:
+
+==================================================
+ID: O3683335964 | Title: About me.rtf | Purl: about-me-rtf | Overlay: True | Pin: False
+CONTENT:
+<a href="#" rel="close-overlay"><span style="color: rgb(255, 92, 95);">●</span>  <span style="color: rgb(250, 200, 0);">●</span>  <span style="color: rgb(52, 199, 89);">●</span></a>    📄  About me<hr /><br />
+
+
+
+<column-set gutter="1rem" mobile-hide-empty="false" mobile-stack="true"><column-unit slot="0" span="4"><span style="color: rgba(255, 255, 255, 0.85);">Contact</span><br /><br />
+pro.ayizih@gmail.com<br />
+<br />
+MILAN - MUNICH - PARIS <br /><br /><br /><br />
+</column-unit><column-unit slot="1" span="8">My name is <b>Hiziya Ribery</b>, a 20-year old<b> French–Arab</b> creative. <br />
+
+<br />
+I grew up surrounded by <b>multiple cultures</b>, which gave me an expanded perspective on the world. I have been passionate about <b>fashion</b> and <br />
+
+<b>visual arts </b>from a very young age, and my goal is to build a life and career entirely from this passion.<br />
+
+<br />
+<br /><b>Versatile person </b> I can understand different perspectives and adapt to many environments. I have an <b>open mind</b>, and I’m able to follow and connect with a wide range of ideas and creative directions. <br />
+
+<br />
+That’s why fashion and visual art  resonate so strongly with me: each has its <b>own themes </b>and <b>language</b>, yet they all exist within the same artistic universe.<br /></column-unit></column-set><column-set gutter="1rem" mobile-hide-empty="false" mobile-stack="true"><column-unit slot="0"><br /></column-unit></column-set><column-set gutter="1rem" mobile-hide-empty="false" mobile-stack="true"><column-unit slot="0"><span style="color: rgba(255, 255, 255, 0.85);"></span></column-unit><column-unit slot="1"></column-unit><column-unit slot="2"></column-unit></column-set>
+
+LOCAL_CSS:
+[id="O3683335964"] .page-layout {
+	padding: 0.0rem;
+	max-width: 45%;
+	padding-top: 5rem;
+	padding-right: 3rem;
+	padding-bottom: 5rem;
+	padding-left: 3rem;
+	align-items: center;
+	--page-layout-mix: normal;
+}
+
+[id="O3683335964"] .page-content {
+	text-align: left;
+	background-color: rgba(30, 30, 30, 0.69);
+	border-width: 0.1rem;
+	border-style: solid;
+	border-radius: 1.6rem;
+	box-shadow: 0.4rem 0.4rem 2rem 0rem rgba(0, 0, 0, 0.25);
+	align-items: center;
+	height: auto;
+	border-color: rgba(255, 255, 255, 0.15);
+	padding-top: 0.8rem;
+	--page-content-backdrop-filter: blur(2rem);
+}
+
+[id="O3683335964"].page {
+	justify-content: center;
+	min-height: var(--viewport-height);
+}
+
+MEDIA:
+
+==================================================
+ID: J3987867771 | Title: My work | Purl: my-work | Overlay: False | Pin: False
+CONTENT:
+<gallery-justify gutter="1.5rem" mobile-gutter="1rem" mobile-row-height="40%" row-align="center" row-height="12%"><media-item class="linked" disable-zoom="true" hash="G2838278201348243894093994197287" href="#intimite-shoot" rel="history"><figcaption class="caption" slot="caption"><span class="caption-light">My work</span></figcaption></media-item><media-item class="linked" disable-zoom="true" hash="B2933349675152525178512490376315" href="about-me-rtf" rel="history"><figcaption class="caption" slot="caption"><span class="caption-light">About me.rtf</span></figcaption></media-item></gallery-justify>
+
+LOCAL_CSS:
+[id="J3987867771"].page {
+	min-height: var(--viewport-height);
+}
+
+[id="J3987867771"] .page-content {
+	text-align: center;
+	align-items: center;
+}
+
+[id="J3987867771"] .page-layout {
+	align-items: center;
+}
+
+MEDIA:
+  - name: about.png, hash: M2834954642042197404659579552039, w: 1024, h: 1024
+  - name: HHD.png, hash: G2838278201348243894093994197287, w: 1024, h: 1024
+  - name: 30325_g4l94w.jpg-copie.png, hash: B2933349675152525178512490376315, w: 500, h: 642
+
+==================================================
+ID: Y1894100856 | Title: Page Nav (desktop) | Purl: page-nav-(desktop) | Overlay: False | Pin: True
+CONTENT:
+<span style="--font-scale: 1.4;"><a class="icon-link" href="#" rel="prev-page"><text-icon icon="nav-up"></text-icon></a> <br />
+<a class="icon-link" href="#" rel="next-page"><text-icon icon="nav-down"></text-icon></a></span>
+
+LOCAL_CSS:
+[id="Y1894100856"].page {
+	--page-mix: difference;
+	min-height: var(--viewport-height);
+}
+
+[id="Y1894100856"] .page-content {
+	align-items: flex-end;
+	text-align: right;
+}
+
+.overlay-content:has([id="Y1894100856"]) {
+	--overlay-mix: difference;
+}
+
+[id="Y1894100856"] .page-layout {
+	align-items: flex-end;
+}
+
+MEDIA:
+
+==================================================
+ID: Q2320124064 | Title: Read More example | Purl: read-more-example | Overlay: True | Pin: False
+CONTENT:
+<a href="#" rel="close-overlay" style="color: rgb(255, 92, 95);">●</a><br />
+<br />
+
+<h2>Project A</h2><br />
+<span style="color: rgba(255, 255, 255, 0.85);">Client Name<br />September 06, 2032</span><br /><br />
+Integer et placerat est, eu imperdiet neque. Proin sit amet purus metus. In nec efficitur justo, sed maximus est. Ut ornare arcu eros, at condimentum enim imperdiet vitae. Morbi lorem augue, commodo vel ipsum ac, sollicitudin placerat urna. <br /><br />
+Praesent sit amet mauris tortor. Duis ac risus sem. Fusce at elementum justo, ac mollis turpis. Pellentesque accumsan purus ut tristique bibendum. Nam feugiat sit amet . Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nisl metus, accumsan id eros id, vehicula tincidunt nisl. Nulla sit amet urna ut mi tempor euismod. Fusce elementum sapien eget elit sodales fringilla. Pellentesque et nulla vel velit malesuada fermentum vitae vitae justo.<br />
+
+LOCAL_CSS:
+[id="Q2320124064"] .page-layout {
+	max-width: 25%;
+	align-items: center;
+	padding: 3rem;
+	--page-layout-mix: normal;
+}
+
+[id="Q2320124064"] .page-content {
+	text-align: left;
+	background-color: rgba(30, 30, 30, 0.69);
+	border-width: 0.1rem;
+	border-style: solid;
+	border-radius: 1.6rem;
+	box-shadow: 0.4rem 0.4rem 2rem 0rem rgba(0, 0, 0, 0.25);
+	align-items: center;
+	height: auto;
+	border-color: rgba(255, 255, 255, 0.15);
+	--page-content-backdrop-filter: blur(2rem);
+}
+
+[id="Q2320124064"].page {
+	justify-content: center;
+	min-height: var(--viewport-height);
+}
+
+MEDIA:
+
+==================================================
+ID: A4088372307 | Title: LA NUIT | Purl: la-nuit | Overlay: False | Pin: False
+CONTENT:
+<gallery-columnized gutter="1rem"><media-item class="zoomable" hash="Q3051971863046840153013062478971"></media-item><media-item class="zoomable" hash="S3051971922223995141473304063099"></media-item><media-item class="zoomable" hash="P3051973499531293908082224540795"></media-item><media-item class="zoomable" hash="J3051972581141693454378487786619"></media-item><media-item class="zoomable" hash="D3051965324524616250367653981307"></media-item><media-item class="zoomable" hash="Q3051972070701838190761485020283"></media-item><media-item class="zoomable" hash="E3051972949652299814874200419451"></media-item><media-item class="zoomable" hash="A3051972403075272910860186037371"></media-item><media-item class="zoomable" hash="Y3051972736739979716118555667579"></media-item></gallery-columnized><a href="about-me-rtf" rel="history"><span style="--font-scale: 3.9;"></span></a><a href="about-me-rtf" rel="history"><span style="--font-scale: 3.9;"> LA NUIT </span><br />PHOTOGRAPHER  <b>SEBASTIAN QUADRELLI</b><br />
+
+MAKEUP  <b>KRIS DZHIVANSHI</b><br />
+
+HAIR <b>DAVIDE NUCARA </b><br />
+
+STYLIST  <b>HIZIYA RIBERY </b><br />
+
+MODEL  <b>NINA FUCCI</b><br />
+
+CREATIVE DIRECTOR  <b>HIZIYA RIBERY </b></a><br />
+<br />
+<br />
+
+LOCAL_CSS:
+[id="A4088372307"].page {
+}
+
+[id="A4088372307"] .page-content {
+}
+
+[id="A4088372307"] .page-layout {
+	--page-layout-mix: difference;
+}
+
+MEDIA:
+  - name: square-3.png, hash: X2838503729507295124143353561383, w: 2000, h: 2000
+  - name: LA-NOTTE-RECONNECTION--copie.jpg, hash: D3051965324524616250367653981307, w: 3000, h: 2000
+  - name: _36A0793.jpg, hash: Q3051971863046840153013062478971, w: 3000, h: 2000
+  - name: _36A0861.jpg, hash: S3051971922223995141473304063099, w: 3000, h: 2000
+  - name: _36A1057.jpg, hash: Q3051972070701838190761485020283, w: 3000, h: 2000
+  - name: _36A0964.jpg, hash: A3051972403075272910860186037371, w: 3000, h: 2000
+  - name: _36A1124.jpg, hash: J3051972581141693454378487786619, w: 3000, h: 2000
+  - name: _36A1164.jpg, hash: Y3051972736739979716118555667579, w: 3000, h: 2012
+  - name: _36A0829.jpg, hash: E3051972949652299814874200419451, w: 3000, h: 2547
+  - name: _36A0899.jpg, hash: P3051973499531293908082224540795, w: 3000, h: 2462
+
+==================================================
+ID: E2527661644 | Title: ERROR 2000 | Purl: error-2000 | Overlay: False | Pin: False
+CONTENT:
+<gallery-grid gutter="1rem"><media-item class="zoomable" hash="A2933553687970072781500031970427"></media-item><media-item class="zoomable" hash="V2933553688025413013721160625275"></media-item><media-item class="zoomable" hash="S2933553687951626037426322418811"></media-item><media-item class="zoomable" hash="M2933553687933179293352612867195"></media-item><media-item class="zoomable" hash="X2933553687988519525573741522043"></media-item><media-item class="zoomable" hash="X2933553687914732549278903315579"></media-item><media-item class="zoomable" hash="F2933553688006966269647451073659"></media-item></gallery-grid><div style="text-align: right"><a href="about-me-rtf" rel="history"><span style="--font-scale: 3.9;">ERROR 2000</span><br />PHOTOGRAPHER  <b>MARCO MALINGAMBI</b><br />MODEL  <b>CHAMOMI LEPECCHIARI</b><br />
+STYLIST  <b>HIZIYA RIBERY</b><br />CREATIVE DIRECTOR  <b>HIZIYA RIBERY</b></a></div><br /><br />
+
+LOCAL_CSS:
+[id="E2527661644"].page {
+}
+
+[id="E2527661644"] .page-content {
+}
+
+[id="E2527661644"] .page-layout {
+	--page-layout-mix: difference;
+}
+
+MEDIA:
+  - name: square-3.png, hash: X2838503729507295124143353561383, w: 2000, h: 2000
+  - name: outfit-2-experimental-shoot.jpg, hash: M2933553687933179293352612867195, w: 5308, h: 7959
+  - name: outfit-4-experiemnal-styling-.jpg, hash: A2933553687970072781500031970427, w: 5308, h: 7959
+  - name: outfit-6-experimental-.jpg, hash: F2933553688006966269647451073659, w: 5308, h: 7959
+  - name: outfit-5-experimental-shoot-.jpg, hash: X2933553687988519525573741522043, w: 5308, h: 7959
+  - name: outfit-3-experimental-styling.jpg, hash: S2933553687951626037426322418811, w: 5308, h: 7959
+  - name: outfit-1.2.-experimental-shoot-copie.jpg, hash: X2933553687914732549278903315579, w: 5308, h: 7959
+  - name: outfit-7-experimental-outfit-.jpg, hash: V2933553688025413013721160625275, w: 5297, h: 7942
+
+==================================================
+ID: F1560493091 | Title: SET DESIGN | Purl: set-design-1 | Overlay: False | Pin: False
+CONTENT:
+<gallery-justify gutter="1rem"><media-item class="zoomable" hash="L3059729637743710586866646920315"></media-item><media-item class="zoomable" hash="L3059729850803604638211968085115"></media-item><media-item class="zoomable" hash="U3059729925623598601177909439611"></media-item><media-item class="zoomable" hash="T3059730085040360886175854505083"></media-item><media-item class="zoomable" hash="V3059730168880812701185766599803"></media-item><media-item class="zoomable" hash="I3059730282143821313762413522043"></media-item><media-item class="zoomable" hash="Y3059730411861325640087980485755"></media-item><media-item class="zoomable" hash="Y3059730535362277213573428554875"></media-item></gallery-justify><a href="about-me-rtf" rel="history"><span style="--font-scale: 3.9;"></span></a><div style="text-align: right"><a href="about-me-rtf" rel="history"><span style="--font-scale: 3.9;">THE GIRL NEXT ROOM </span><br />PHOTOGRAPHER  <b>SEBASTIAN QUADRELLI</b><br />
+
+MAKEUP  <b>NAOMI TUNDO </b><br />
+
+HAIR <b>DAVIDE NUCARA </b><br />
+
+STYLIST  <b>HIZIYA RIBERY </b><br />
+
+MODEL  <b>SOL AHUMADA <br />
+</b>SET DESIGNER <b>THALA BELLONI</b><br />
+
+CREATIVE DIRECTOR  <b>HIZIYA RIBERY </b></a><br /></div>
+<br />
+<br />
+
+LOCAL_CSS:
+[id="F1560493091"].page {
+}
+
+[id="F1560493091"] .page-content {
+}
+
+[id="F1560493091"] .page-layout {
+	--page-layout-mix: difference;
+}
+
+MEDIA:
+  - name: square-3.png, hash: X2838503729507295124143353561383, w: 2000, h: 2000
+  - name: 1.jpg, hash: L3059729637743710586866646920315, w: 2007, h: 2426
+  - name: 2.jpg, hash: L3059729850803604638211968085115, w: 2007, h: 2426
+  - name: 1.jpg, hash: U3059729925623598601177909439611, w: 2007, h: 2426
+  - name: 2.jpg, hash: T3059730085040360886175854505083, w: 2007, h: 2426
+  - name: 3.jpg, hash: V3059730168880812701185766599803, w: 2007, h: 2426
+  - name: set-B.jpg, hash: I3059730282143821313762413522043, w: 2007, h: 2426
+  - name: 3.jpg, hash: Y3059730411861325640087980485755, w: 2007, h: 2426
+  - name: set-C.jpg, hash: Y3059730535362277213573428554875, w: 2007, h: 2426
+
+==================================================
+ID: M0792343021 | Title: INTIMITE SHOOT | Purl: intimite-shoot | Overlay: False | Pin: False
+CONTENT:
+<gallery-justify gutter="1rem"><media-item class="zoomable" hash="C2933445825522488944429988588667"></media-item><media-item class="zoomable" hash="L2933445825411808479987731278971"></media-item><media-item class="zoomable" hash="J2933445825485595456282569485435"></media-item><media-item class="zoomable" hash="S2933442430270114969671046802555"></media-item><media-item class="zoomable" hash="N2933442430196327993376208596091"></media-item></gallery-justify><gallery-grid gutter="1rem"><media-item class="zoomable" hash="J2933445825467148712208859933819"></media-item><media-item class="zoomable" hash="K2933442430288561713744756354171"></media-item><media-item class="zoomable" hash="U2933443732905394478744743718011"></media-item><media-item class="zoomable" hash="X2933442430307008457818465905787"></media-item><media-item class="zoomable" hash="E2933443577270214728857256733819"></media-item><media-item class="zoomable" hash="V2933447109637237403499295681659"></media-item></gallery-grid><column-set gutter="1"><column-unit slot="0"><span style="--font-scale: 3.9;"><span style="--font-scale: 3.9;">INTIMITÉ</span><br />
+
+</span>PHOTOGRAPHER  <b>ELIA GABASSI</b><br />
+
+HAIR <b>DAVID D</b>.<br />
+
+MAKEUP  <b>VALENTINA BAKH</b><br />
+
+STYLIST  <b>HIZIYA RIBERY / AS. OLGA MISHCHENKO</b><b></b><br />
+
+MODEL  <b>ALESSIA CARNEVALE &#x26; VIVIANA KURTAJ</b><b></b><br />
+
+CREATIVE DIRECTOR  <b>HIZIYA RIBERY<br />
+</b><b><br /><br /><br /><br />
+ </b></column-unit></column-set><column-set gutter="1"><column-unit slot="0"></column-unit><column-unit slot="1"></column-unit></column-set>
+
+LOCAL_CSS:
+[id="M0792343021"].page {
+}
+
+[id="M0792343021"] .page-content {
+}
+
+[id="M0792343021"] .page-layout {
+	--page-layout-mix: difference;
+}
+
+MEDIA:
+  - name: square.png, hash: L2838474691067049404262519341351, w: 2000, h: 2000
+  - name: intimite_-6.jpg, hash: X2933442430307008457818465905787, w: 555, h: 416
+  - name: intimite_-19.jpg, hash: S2933442430270114969671046802555, w: 640, h: 480
+  - name: intimite_-9.jpg, hash: K2933442430288561713744756354171, w: 502, h: 376
+  - name: intimite_-13.jpg, hash: N2933442430196327993376208596091, w: 640, h: 480
+  - name: intimite_-17.jpg, hash: E2933443577270214728857256733819, w: 640, h: 480
+  - name: intimite_.jpg, hash: U2933443732905394478744743718011, w: 632, h: 474
+  - name: intimite_-2.jpg, hash: J2933445825485595456282569485435, w: 627, h: 470
+  - name: intimite_-5.jpg, hash: L2933445825411808479987731278971, w: 604, h: 453
+  - name: intimite_-11.jpg, hash: C2933445825522488944429988588667, w: 545, h: 409
+  - name: intimite_-3.jpg, hash: J2933445825467148712208859933819, w: 604, h: 453
+  - name: intimite_-14.jpg, hash: V2933447109637237403499295681659, w: 640, h: 480
+
+==================================================
+ID: P0979938181 | Title: US SESSION - FILM | Purl: us-session-film | Overlay: False | Pin: False
+CONTENT:
+<media-item class="zoomable" height="300" scale="88.4%" src="https://www.youtube.com/watch?v=ulPCc6kB6U8" width="400"></media-item><a href="about-me-rtf" rel="history"><span style="--font-scale: 3.9;"></span></a><a href="about-me-rtf" rel="history"> <br />
+<span style="--font-scale: 3.9; line-height: 1.25;"></span></a><div style="text-align: right"><a href="about-me-rtf" rel="history"><span style="--font-scale: 3.9; line-height: 1.25;">US SESSION</span><br />CREATIVE DIRECTOR  <b>HIZIYA RIBERY</b><b></b><br />
+
+FILMMAKER  <b>VITALY KAZANIN</b><b></b><br />
+
+MAKEUP <b>KRIS DZHIVANSHI</b><b></b><br />
+
+HAIR <b>DAVIDE NUCARA </b><b></b><br />
+
+STYLIST  <b>HIZIYA RIBERY </b><b></b><br />
+
+ACTOR  <b>MATILDE BRUNO</b><b></b><br />
+
+ACTOR<b>  DAVIDE MAZZONI  </b><br />
+
+</a></div><br /><br />
+<br />
+<br />
+
+LOCAL_CSS:
+[id="P0979938181"].page {
+	min-height: var(--viewport-height);
+}
+
+[id="P0979938181"] .page-content {
+	align-items: flex-start;
+}
+
+[id="P0979938181"] .page-layout {
+	--page-layout-mix: difference;
+}
+
+MEDIA:
+  - name: square-3.png, hash: X2838503729507295124143353561383, w: 2000, h: 2000
+
+==================================================
+ID: Q3988725391 | Title: THE SACRED OBJECT | Purl: the-sacred-object-1 | Overlay: False | Pin: False
+CONTENT:
+<a href="#" rel="quick-view"><span style="--font-scale: 3.9;"><gallery-freeform gutter="1rem"><media-item class="zoomable" freeform-scale="29" freeform-x="7.268897765302822" freeform-y="0" freeform-z="1" hash="X2933451334808627254450964671611"></media-item><media-item class="zoomable" freeform-scale="20" freeform-x="51.476303573356375" freeform-y="15.307135917089498" freeform-z="5" hash="Y2933451334790180510377255119995"></media-item><media-item class="zoomable" freeform-scale="15.30" freeform-x="80.25099859656703" freeform-y="26.210946777501892" freeform-z="6" hash="Z2933451334845520742598383774843" scale="15.30"></media-item><media-item class="zoomable" freeform-scale="23.10" freeform-x="26.1912447371262" freeform-y="35.170894958436776" freeform-z="2" hash="N2933451334827073998524674223227" scale="23.10"></media-item><media-item class="zoomable" freeform-scale="29.68" freeform-x="54.71391557810645" freeform-y="35.66188060023751" freeform-z="4" hash="K2933451334734840278156126465147" scale="29.68"></media-item><media-item class="zoomable" freeform-scale="20" freeform-x="13.035733563640292" freeform-y="62.02914822411747" freeform-z="3" hash="R2933451334771733766303545568379"></media-item></gallery-freeform></span><span style="--font-scale: 3.9;">THE SCARED OBJECT </span><br />PHOTOGRAPHER  <b>MARCO MALINGAMBI</b><br />MODEL  <b>MATIDLE CELESTE - EMILIJA GATE  -  CYNTHIA LOPES<br />
+</b>HAIR <b>DAVIDE NUCARA</b><br />CREATIVE DIRECTOR  <b>HIZIYA RIBERY </b></a><br />
+<br />
+<br />
+
+LOCAL_CSS:
+[id="Q3988725391"].page {
+}
+
+[id="Q3988725391"] .page-content {
+}
+
+[id="Q3988725391"] .page-layout {
+	--page-layout-mix: difference;
+}
+
+MEDIA:
+  - name: square-3.png, hash: X2838503729507295124143353561383, w: 2000, h: 2000
+  - name: Beauty-shooting20299b.jpg, hash: K2933451334734840278156126465147, w: 5297, h: 7942
+  - name: Beauty-shooting20395.jpg, hash: X2933451334808627254450964671611, w: 4506, h: 6759
+  - name: Beauty-shooting20420.jpg, hash: Z2933451334845520742598383774843, w: 5297, h: 7942
+  - name: Beauty-shooting20308.jpg, hash: R2933451334771733766303545568379, w: 5026, h: 5026
+  - name: Beauty-shooting20458.jpg, hash: N2933451334827073998524674223227, w: 5297, h: 7942
+  - name: Beauty-shooting20327.jpg, hash: Y2933451334790180510377255119995, w: 5299, h: 7944
+
+==================================================
+ID: W3022037672 | Title: BLUUMYOGA | Purl: bluumyoga | Overlay: False | Pin: False
+CONTENT:
+<gallery-columnized gutter="1rem"><media-item class="zoomable" hash="Y3109180206466599595818795674747"></media-item><media-item class="zoomable" hash="F3109175113191433636095627635835"></media-item><media-item class="zoomable" hash="I3109174730956449684760008600699"></media-item><media-item class="zoomable" hash="E3109180231572618280137495424123"></media-item><media-item class="zoomable" hash="Q3109176682806440123967665089659"></media-item><media-item class="zoomable" hash="S3109175055877399799080050764923"></media-item><media-item class="zoomable" hash="F3109292214653893302447178787963"></media-item><media-item class="zoomable" columnized-span="1" disable-zoom="false" hash="Q3109294149606666170136885996667"></media-item><media-item class="zoomable" hash="E3109292151584475314434221812859"></media-item></gallery-columnized><a href="about-me-rtf" rel="history"><span style="--font-scale: 3.9;"></span></a><a href="about-me-rtf" rel="history"><span style="--font-scale: 3.9; line-height: 1.25;">BLUUMYOGA - ADV</span><br />PHOTOGRAPHER <b>MORWOYNE M.</b><br />
+
+MAKEUP  <b>MOUNAYAH </b><br />
+
+HAIR <b>ANNA HAIR PARIS </b><br />
+
+STYLIST  <b>HIZIYA RIBERY </b><br />
+
+MODEL  <b>LOLA F.</b><br />
+
+CREATIVE DIRECTOR  <b>HIZIYA RIBERY </b></a><br />
+<br />
+<br />
+
+LOCAL_CSS:
+[id="W3022037672"].page {
+	min-height: var(--viewport-height);
+}
+
+[id="W3022037672"] .page-content {
+	align-items: flex-start;
+}
+
+[id="W3022037672"] .page-layout {
+	--page-layout-mix: difference;
+}
+
+MEDIA:
+  - name: square-3.png, hash: X2838503729507295124143353561383, w: 2000, h: 2000
+  - name: M1034652.jpg, hash: I3109174730956449684760008600699, w: 6336, h: 9520
+  - name: M1034601.jpg, hash: S3109175055877399799080050764923, w: 4311, h: 6477
+  - name: M1034705.jpg, hash: F3109175113191433636095627635835, w: 5547, h: 8334
+  - name: M1034670.jpg, hash: Q3109176682806440123967665089659, w: 4975, h: 7474
+  - name: M1034569.jpg, hash: Y3109180206466599595818795674747, w: 5144, h: 7730
+  - name: M1034552.jpg, hash: E3109180231572618280137495424123, w: 6187, h: 9295
+  - name: M1034732.jpg, hash: E3109292151584475314434221812859, w: 5743, h: 8629
+  - name: M1034666.jpg, hash: F3109292214653893302447178787963, w: 6336, h: 9520
+  - name: Capture-decran-2026-08-30-a-22.52.32.png, hash: Q3109294149606666170136885996667, w: 990, h: 1178
+
+==================================================
+ID: Z3424671861 | Title: AIRPLANE MODE | Purl: airplane-mode-1 | Overlay: False | Pin: False
+CONTENT:
+<gallery-grid gutter="1rem"><media-item class="zoomable" disable-zoom="false" grid-span="1" hash="Q2933997678244411063081294638203"></media-item><media-item class="zoomable" hash="Y2934000259534202785406271368315"></media-item><media-item class="zoomable" hash="A2934000635534187239828061957243"></media-item><media-item class="zoomable" hash="J2933998375678911001892022135931"></media-item><media-item class="zoomable" hash="O2933999499952622062268064476283"></media-item><media-item class="zoomable" hash="Q2933999615300112755173890731131"></media-item></gallery-grid><div style="text-align: right"><span style="--font-scale: 3.9;">AIRPLANE MODE </span><br />PHOTOGRAPHER  <b>IRINA LITVINEKO</b><br />CREATIVE DIRECTOR <b> HIZIYA RIBERY</b></div><br />
+<br />
+<br />
+<br />
+<br />
+
+LOCAL_CSS:
+[id="Z3424671861"].page {
+}
+
+[id="Z3424671861"] .page-content {
+}
+
+[id="Z3424671861"] .page-layout {
+	--page-layout-mix: difference;
+}
+
+MEDIA:
+  - name: square-3.png, hash: X2838503729507295124143353561383, w: 2000, h: 2000
+  - name: STILL-LIFE-FINAL-.jpg, hash: Q2933997678244411063081294638203, w: 6720, h: 4480
+  - name: still-life-4.jpg, hash: J2933998375678911001892022135931, w: 6720, h: 4480
+  - name: still-life-final-2.jpg, hash: O2933999499952622062268064476283, w: 6720, h: 4480
+  - name: Still-life-1---details-.jpg, hash: Q2933999615300112755173890731131, w: 6720, h: 4480
+  - name: still-life-4---details-.jpg, hash: Y2934000259534202785406271368315, w: 6720, h: 4480
+  - name: still-life-3---details-2.jpg, hash: A2934000635534187239828061957243, w: 6720, h: 4480
+
