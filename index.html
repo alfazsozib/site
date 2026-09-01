@@ -69,6 +69,15 @@
         font-family: var(--font-main);
         font-size: 16px;
         line-height: 1.45;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+      }
+
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
       }
 
       body {
@@ -78,6 +87,8 @@
         overflow-x: hidden;
         position: relative;
         font-family: var(--font-main);
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
         font-variation-settings:
           "slnt" 0,
           "MONO" 0;
@@ -152,8 +163,6 @@
       /* Home 100vh unscrollable desktop lock */
       body.home-locked {
         overflow: hidden !important;
-        height: 100vh;
-        height: 100dvh;
       }
 
       body.home-locked .page-nav-controls {
@@ -161,6 +170,103 @@
         visibility: hidden;
         pointer-events: none;
         transform: translateY(14px);
+      }
+
+      /* =========================================================
+       UNIQUE EDITORIAL SCROLLBAR (MATCHED MINIMALIST TASTE)
+       ========================================================= */
+      .editorial-scrollbar {
+        position: fixed;
+        right: 28px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 998;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition:
+          opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+          visibility 0.45s ease,
+          transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+        user-select: none;
+      }
+
+      /* Rises into view when inside projects section */
+      body:not(.home-locked) .editorial-scrollbar {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      body.home-locked .editorial-scrollbar {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-50%) translateX(12px);
+      }
+
+      .scrollbar-label {
+        font-family: var(--font-main);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.45);
+        opacity: 0;
+        transform: translateX(4px);
+        transition:
+          opacity 0.22s ease,
+          transform 0.22s ease,
+          color 0.22s ease;
+        white-space: nowrap;
+        pointer-events: none;
+      }
+
+      .editorial-scrollbar:hover .scrollbar-label,
+      .editorial-scrollbar.is-scrolling .scrollbar-label {
+        opacity: 1;
+        transform: translateX(0);
+        color: rgba(255, 255, 255, 0.95);
+      }
+
+      .scrollbar-track {
+        width: 2px;
+        height: 180px;
+        background: rgba(255, 255, 255, 0.14);
+        border-radius: 999px;
+        position: relative;
+        cursor: pointer;
+        transition:
+          width 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .editorial-scrollbar:hover .scrollbar-track {
+        width: 4px;
+        background: rgba(255, 255, 255, 0.25);
+      }
+
+      .scrollbar-thumb {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 38px;
+        background: #ffffff;
+        border-radius: 999px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+        cursor: grab;
+        transition:
+          background 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+
+      .scrollbar-thumb:active {
+        cursor: grabbing;
+        box-shadow: 0 0 16px rgba(255, 255, 255, 0.85);
       }
 
       .nav-arrow-btn {
@@ -219,7 +325,10 @@
         align-items: center;
         cursor: pointer;
         text-decoration: none;
-        transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: transform 0.2s ease, opacity 0.2s ease;
+      }
+      .desktop-icon-item:active {
+        transform: scale(0.96);
       }
 
       .desktop-icon-thumb {
@@ -229,13 +338,13 @@
         align-items: center;
         justify-content: center;
         transition:
-          transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-          filter 0.28s ease;
+          transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+          filter 0.25s ease;
         position: relative;
       }
       .desktop-icon-item:hover .desktop-icon-thumb {
-        transform: scale(1.08) translateY(-6px);
-        filter: drop-shadow(0 20px 35px rgba(255, 255, 255, 0.24));
+        transform: scale(1.06) translateY(-4px);
+        filter: drop-shadow(0 15px 30px rgba(255, 255, 255, 0.2));
       }
 
       /* Matched framing: avatar and HDD have identical dimensions and visual weight */
@@ -500,10 +609,44 @@
         gap: 16px;
         width: 100%;
         cursor: pointer;
-        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
       }
+
+      .showcase-card.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
       .showcase-card:hover {
-        transform: translateY(-4px);
+        transform: translateY(-5px);
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        transition-delay: 0s !important;
+      }
+
+      /* Staggered smooth reveal */
+      .photo-editorial-grid > .showcase-card:nth-child(1).is-visible {
+        transition-delay: 0.12s;
+      }
+      .photo-editorial-grid > .showcase-card:nth-child(2).is-visible {
+        transition-delay: 0.24s;
+      }
+      .photo-editorial-grid > .showcase-card:nth-child(3).is-visible {
+        transition-delay: 0.36s;
+      }
+      .photo-editorial-grid > .showcase-card:nth-child(4).is-visible {
+        transition-delay: 0.15s;
+      }
+      .photo-editorial-grid > .showcase-card:nth-child(5).is-visible {
+        transition-delay: 0.27s;
+      }
+      .photo-editorial-grid > .showcase-card:nth-child(6).is-visible {
+        transition-delay: 0.39s;
       }
 
       /* MEDIA FRAMES (CONSISTENT 4:5 EDITORIAL RATIO) */
@@ -532,11 +675,12 @@
         height: 100%;
         object-fit: cover;
         display: block;
-        transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
         cursor: zoom-in;
+        will-change: transform;
       }
       .showcase-card:hover .showcase-media-box img {
-        transform: scale(1.045);
+        transform: scale(1.08);
       }
 
       /* CORNER ZOOM BADGE ON PHOTO HOVER */
@@ -612,12 +756,13 @@
         object-fit: cover;
         transition:
           opacity 0.4s ease,
-          transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+          transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
         z-index: 1;
         pointer-events: none;
+        will-change: transform;
       }
       .showcase-card:hover .hover-video-container .video-cover-img {
-        transform: scale(1.045);
+        transform: scale(1.08);
       }
       .hover-video-container.is-active .video-cover-img {
         opacity: 0;
@@ -900,6 +1045,16 @@
           gap: 18px;
           font-size: 16px;
         }
+        .editorial-scrollbar {
+          right: 12px;
+        }
+        .scrollbar-track {
+          height: 120px;
+          width: 2px;
+        }
+        .scrollbar-label {
+          display: none;
+        }
       }
     </style>
   </head>
@@ -951,6 +1106,16 @@
       </button>
     </div>
 
+    <!-- =======================================================
+       UNIQUE EDITORIAL SCROLLBAR & POSITION INDICATOR
+       ======================================================= -->
+    <div class="editorial-scrollbar" id="editorial-scrollbar" aria-label="Scroll progress">
+      <div class="scrollbar-label" id="scrollbar-label">0%</div>
+      <div class="scrollbar-track" id="scrollbar-track">
+        <div class="scrollbar-thumb" id="scrollbar-thumb"></div>
+      </div>
+    </div>
+
     <main>
       <!-- =======================================================
          3. HERO DESKTOP VIEWPORT (MATCHED HDD & AVATAR ICONS)
@@ -998,27 +1163,15 @@
         <!-- ==================== 1. PHOTOGRAPHY & EDITORIAL ==================== -->
         <section id="section-photography">
           <div class="project-editorial-header align-left">
-            <h2 class="project-editorial-title">ÉDITORIAL</h2>
+            <h2 class="project-editorial-title">PHOTO SHOOTING</h2>
             <div class="project-editorial-credits">
               <div class="project-credit-line">
                 <span class="project-credit-role">EDITORIAL COORDINATOR</span>
                 <span class="project-credit-name">CLAUDETTE KALULU</span>
               </div>
               <div class="project-credit-line">
-                <span class="project-credit-role"
-                  >CREATIVE DIRECTION &amp; STYLING</span
-                >
-                <span class="project-credit-name">CLAUDETTE KALULU</span>
-              </div>
-              <div class="project-credit-line">
-                <span class="project-credit-role"
-                  >INFLUENCE &amp; PR STRATEGY</span
-                >
-                <span class="project-credit-name">CLAUDETTE KALULU</span>
-              </div>
-              <div class="project-credit-line">
-                <span class="project-credit-role">LOCATION</span>
-                <span class="project-credit-name">PARIS — INTERNATIONAL</span>
+                <!-- <span class="project-credit-role">LOCATION</span> -->
+                <span class="project-credit-name">STARTERZ AGENCY</span>
               </div>
             </div>
           </div>
@@ -1034,7 +1187,7 @@
                 <img
                   src="./media/castello_lukeba_opt.jpg"
                   alt="Castello Lukeba"
-                  loading="lazy"
+                  decoding="async"
                   style="object-position: center 20%"
                 />
                 <div class="photo-zoom-indicator" title="Enlarge image">
@@ -1061,7 +1214,7 @@
                 <img
                   src="./media/fashion_editorial_2_opt.jpg"
                   alt="Haute Form"
-                  loading="lazy"
+                  decoding="async"
                   style="object-position: center center"
                 />
                 <div class="photo-zoom-indicator" title="Enlarge image">
@@ -1088,7 +1241,7 @@
                 <img
                   src="./media/pierre_kalulu_opt.jpg"
                   alt="Pierre Kalulu"
-                  loading="lazy"
+                  decoding="async"
                   style="object-position: center center"
                 />
                 <div class="photo-zoom-indicator" title="Enlarge image">
@@ -1115,7 +1268,7 @@
                 <img
                   src="./media/fashion_sport_3_opt.jpg"
                   alt="Arena Lights"
-                  loading="lazy"
+                  decoding="async"
                   style="object-position: center center"
                 />
                 <div class="photo-zoom-indicator" title="Enlarge image">
@@ -1142,7 +1295,7 @@
                 <img
                   src="./media/fashion_football_1_opt.jpg"
                   alt="Matchday Horizon"
-                  loading="lazy"
+                  decoding="async"
                   style="object-position: center center"
                 />
                 <div class="photo-zoom-indicator" title="Enlarge image">
@@ -1169,7 +1322,7 @@
                 <img
                   src="./media/fashion_street_4_opt.jpg"
                   alt="Influence & Street"
-                  loading="lazy"
+                  decoding="async"
                   style="object-position: center 25%"
                 />
                 <div class="photo-zoom-indicator" title="Enlarge image">
@@ -1191,25 +1344,14 @@
         <!-- ==================== 2. MOTION & FILM SHOWCASE ==================== -->
         <section id="section-motion">
           <div class="project-editorial-header align-right">
-            <h2 class="project-editorial-title">MOUVEMENT &amp; FILM</h2>
+            <h2 class="project-editorial-title">VIDEO SHOOTING</h2>
             <div class="project-editorial-credits">
-              <div class="project-credit-line">
-                <span class="project-credit-role">VIDEO DIRECTION</span>
-                <span class="project-credit-name">CLAUDETTE KALULU</span>
-              </div>
               <div class="project-credit-line">
                 <span class="project-credit-role">EDITORIAL COORDINATION</span>
                 <span class="project-credit-name">CLAUDETTE KALULU</span>
               </div>
               <div class="project-credit-line">
-                <span class="project-credit-role"
-                  >CAMPAIGN REELS &amp; PRODUCTION</span
-                >
-                <span class="project-credit-name">CLAUDETTE KALULU</span>
-              </div>
-              <div class="project-credit-line">
-                <span class="project-credit-role">LOCATION</span>
-                <span class="project-credit-name">PARIS — INTERNATIONAL</span>
+                <span class="project-credit-name">STARTERZ AGENCY</span>
               </div>
             </div>
           </div>
@@ -1484,6 +1626,7 @@
 
       function goToProjects(e) {
         if (e) e.preventDefault();
+        if (isNavigatingToProjects) return;
         isNavigatingToProjects = true;
         unlockHome();
         const targetEl = document.getElementById("projects-page");
@@ -1492,7 +1635,7 @@
         }
         setTimeout(() => {
           isNavigatingToProjects = false;
-        }, 900);
+        }, 800);
       }
 
       // Initial state: start locked on top screen unless direct section hash is specified
@@ -1510,6 +1653,36 @@
           }
         }
         lockHome();
+
+        // IntersectionObserver for cards: buttery-smooth entrance as you scroll into them
+        if ("IntersectionObserver" in window) {
+          const cardObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("is-visible");
+                } else if (window.scrollY < 120) {
+                  // Reset when scrolled back to the top home screen
+                  entry.target.classList.remove("is-visible");
+                }
+              });
+            },
+            {
+              root: null,
+              threshold: 0.1,
+              rootMargin: "0px 0px -20px 0px",
+            }
+          );
+
+          document.querySelectorAll(".showcase-card").forEach((card) => {
+            cardObserver.observe(card);
+          });
+        } else {
+          // Fallback
+          document.querySelectorAll(".showcase-card").forEach((card) => {
+            card.classList.add("is-visible");
+          });
+        }
       }
 
       window.addEventListener("DOMContentLoaded", initHomeLock);
@@ -1710,6 +1883,113 @@
           closeAboutModal();
         }
       });
+
+      // =========================================================
+      // UNIQUE EDITORIAL SCROLLBAR CONTROLLER
+      // =========================================================
+      const scrollbarEl = document.getElementById("editorial-scrollbar");
+      const scrollbarTrack = document.getElementById("scrollbar-track");
+      const scrollbarThumb = document.getElementById("scrollbar-thumb");
+      const scrollbarLabel = document.getElementById("scrollbar-label");
+
+      let isDraggingScrollbar = false;
+      let scrollTimer = null;
+
+      function updateCustomScrollbar() {
+        if (!scrollbarTrack || !scrollbarThumb) return;
+
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        if (maxScroll <= 0) return;
+
+        const currentScroll = Math.max(0, window.scrollY);
+        const progress = Math.min(1, Math.max(0, currentScroll / maxScroll));
+
+        const trackHeight = scrollbarTrack.clientHeight;
+        const thumbHeight = scrollbarThumb.clientHeight;
+        const maxThumbTravel = trackHeight - thumbHeight;
+
+        const thumbTop = progress * maxThumbTravel;
+        scrollbarThumb.style.transform = `translateY(${thumbTop}px)`;
+
+        // Update percentage and micro-feedback
+        if (scrollbarLabel) {
+          const percent = Math.round(progress * 100);
+          scrollbarLabel.textContent = `${percent}%`;
+        }
+
+        if (scrollbarEl) {
+          scrollbarEl.classList.add("is-scrolling");
+          clearTimeout(scrollTimer);
+          scrollTimer = setTimeout(() => {
+            if (!isDraggingScrollbar && scrollbarEl) {
+              scrollbarEl.classList.remove("is-scrolling");
+            }
+          }, 650);
+        }
+      }
+
+      window.addEventListener("scroll", updateCustomScrollbar, { passive: true });
+      window.addEventListener("resize", updateCustomScrollbar);
+
+      // Interactive Click & Drag on Custom Scrollbar
+      if (scrollbarTrack && scrollbarThumb) {
+        function onDragStart(e) {
+          isDraggingScrollbar = true;
+          document.body.style.userSelect = "none";
+          if (scrollbarEl) scrollbarEl.classList.add("is-scrolling");
+          onDragMove(e);
+          window.addEventListener("mousemove", onDragMove);
+          window.addEventListener("mouseup", onDragEnd);
+          window.addEventListener("touchmove", onDragMove, { passive: false });
+          window.addEventListener("touchend", onDragEnd);
+        }
+
+        function onDragMove(e) {
+          if (!isDraggingScrollbar) return;
+          if (e.cancelable) e.preventDefault();
+
+          const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+          const rect = scrollbarTrack.getBoundingClientRect();
+          const offsetY = clientY - rect.top;
+          const trackHeight = rect.height;
+
+          const clampedY = Math.max(0, Math.min(trackHeight, offsetY));
+          const progress = clampedY / trackHeight;
+
+          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          window.scrollTo({
+            top: progress * maxScroll,
+            behavior: "auto",
+          });
+        }
+
+        function onDragEnd() {
+          isDraggingScrollbar = false;
+          document.body.style.userSelect = "";
+          if (scrollbarEl) scrollbarEl.classList.remove("is-scrolling");
+          window.removeEventListener("mousemove", onDragMove);
+          window.removeEventListener("mouseup", onDragEnd);
+          window.removeEventListener("touchmove", onDragMove);
+          window.removeEventListener("touchend", onDragEnd);
+        }
+
+        scrollbarThumb.addEventListener("mousedown", onDragStart);
+        scrollbarThumb.addEventListener("touchstart", onDragStart, {
+          passive: false,
+        });
+
+        scrollbarTrack.addEventListener("click", (e) => {
+          if (e.target === scrollbarThumb) return;
+          const rect = scrollbarTrack.getBoundingClientRect();
+          const offsetY = e.clientY - rect.top;
+          const progress = Math.max(0, Math.min(1, offsetY / rect.height));
+          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          window.scrollTo({
+            top: progress * maxScroll,
+            behavior: "smooth",
+          });
+        });
+      }
     </script>
   </body>
 </html>
