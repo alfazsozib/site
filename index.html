@@ -143,6 +143,24 @@
         flex-direction: column;
         gap: 10px;
         mix-blend-mode: difference;
+        transition:
+          opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+          visibility 0.35s ease,
+          transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      /* Home 100vh unscrollable desktop lock */
+      body.home-locked {
+        overflow: hidden !important;
+        height: 100vh;
+        height: 100dvh;
+      }
+
+      body.home-locked .page-nav-controls {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(14px);
       }
 
       .nav-arrow-btn {
@@ -885,7 +903,7 @@
       }
     </style>
   </head>
-  <body>
+  <body class="home-locked">
     <!-- =======================================================
        1. TOP MINIMAL HEADER LINKS (NON-STICKY / SCROLLS AWAY)
        ======================================================= -->
@@ -944,6 +962,7 @@
             href="#projects-page"
             class="desktop-icon-item"
             id="projects-icon"
+            onclick="goToProjects(event)"
             title="View Projects"
           >
             <div class="desktop-icon-thumb">
@@ -1449,6 +1468,113 @@
         "item-caqueret",
       ];
 
+      let isNavigatingToProjects = false;
+
+      function lockHome() {
+        if (!document.body.classList.contains("home-locked")) {
+          document.body.classList.add("home-locked");
+        }
+        window.scrollTo(0, 0);
+      }
+
+      function unlockHome() {
+        document.body.classList.remove("home-locked");
+        document.body.style.overflow = "";
+      }
+
+      function goToProjects(e) {
+        if (e) e.preventDefault();
+        isNavigatingToProjects = true;
+        unlockHome();
+        const targetEl = document.getElementById("projects-page");
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: "smooth" });
+        }
+        setTimeout(() => {
+          isNavigatingToProjects = false;
+        }, 900);
+      }
+
+      // Initial state: start locked on top screen unless direct section hash is specified
+      function initHomeLock() {
+        if ("scrollRestoration" in history) {
+          history.scrollRestoration = "manual";
+        }
+        const hash = window.location.hash;
+        if (hash && hash !== "#desktop-home" && hash !== "#") {
+          const target = document.querySelector(hash);
+          if (target) {
+            unlockHome();
+            target.scrollIntoView();
+            return;
+          }
+        }
+        lockHome();
+      }
+
+      window.addEventListener("DOMContentLoaded", initHomeLock);
+
+      // Re-lock when scrolled back to the very top (first 100vh page)
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (isNavigatingToProjects) return;
+          if (document.body.classList.contains("home-locked")) return;
+
+          if (window.scrollY <= 0) {
+            lockHome();
+          }
+        },
+        { passive: true }
+      );
+
+      // Prevent wheel / touch / keyboard scrolling while locked on the home screen
+      window.addEventListener(
+        "wheel",
+        (e) => {
+          if (document.body.classList.contains("home-locked")) {
+            e.preventDefault();
+          }
+        },
+        { passive: false }
+      );
+
+      window.addEventListener(
+        "touchmove",
+        (e) => {
+          if (document.body.classList.contains("home-locked")) {
+            const aboutOverlay = document.getElementById("about-overlay");
+            if (!aboutOverlay || !aboutOverlay.classList.contains("active")) {
+              e.preventDefault();
+            }
+          }
+        },
+        { passive: false }
+      );
+
+      window.addEventListener("keydown", (e) => {
+        if (document.body.classList.contains("home-locked")) {
+          const aboutOverlay = document.getElementById("about-overlay");
+          if (aboutOverlay && aboutOverlay.classList.contains("active")) {
+            return;
+          }
+          if (
+            [
+              "ArrowDown",
+              "ArrowUp",
+              "PageDown",
+              "PageUp",
+              "Home",
+              "End",
+              " ",
+              "Spacebar",
+            ].includes(e.key)
+          ) {
+            e.preventDefault();
+          }
+        }
+      });
+
       function getCurrentSectionIndex() {
         const scrollY = window.scrollY + 140;
         let currentIndex = 0;
@@ -1466,11 +1592,24 @@
         const targetIndex = Math.max(0, currentIndex - 1);
         const targetEl = document.getElementById(sections[targetIndex]);
         if (targetEl) {
-          targetEl.scrollIntoView({ behavior: "smooth" });
+          if (targetIndex === 0) {
+            isNavigatingToProjects = true;
+            targetEl.scrollIntoView({ behavior: "smooth" });
+            setTimeout(() => {
+              isNavigatingToProjects = false;
+              lockHome();
+            }, 800);
+          } else {
+            targetEl.scrollIntoView({ behavior: "smooth" });
+          }
         }
       }
 
       function scrollToNextSection() {
+        if (document.body.classList.contains("home-locked")) {
+          goToProjects();
+          return;
+        }
         const currentIndex = getCurrentSectionIndex();
         const targetIndex = Math.min(sections.length - 1, currentIndex + 1);
         const targetEl = document.getElementById(sections[targetIndex]);
@@ -1490,7 +1629,9 @@
         if (e) e.preventDefault();
         const overlay = document.getElementById("about-overlay");
         overlay.classList.remove("active");
-        document.body.style.overflow = "";
+        if (!document.body.classList.contains("home-locked")) {
+          document.body.style.overflow = "";
+        }
       }
 
       // Video Hover-to-Play Handlers
@@ -1555,7 +1696,8 @@
         const modal = document.getElementById("lightbox-modal");
         modal.classList.remove("active");
         if (
-          !document.getElementById("about-overlay").classList.contains("active")
+          !document.getElementById("about-overlay").classList.contains("active") &&
+          !document.body.classList.contains("home-locked")
         ) {
           document.body.style.overflow = "";
         }
