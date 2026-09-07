@@ -6,11 +6,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
-    <title>Claudette Kalulu</title>
+    <title>Claudette’s Creative Mind</title>
     <link
       rel="icon"
-      type="image/png"
-      href="./media/avatar_claudette_nobg.png"
+      type="image/webp"
+      href="./media/avatar_claudette_nobg.webp"
     />
     <link rel="preconnect" href="https://type.cargo.site" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,19 +38,19 @@
       }
 
       :root {
-        --bg: #000000;
-        --surface: #0a0a0a;
-        --card-bg: #111111;
-        --text: #ffffff;
-        --text-dim: rgba(255, 255, 255, 0.55);
-        --text-sub: rgba(255, 255, 255, 0.85);
-        --border-subtle: rgba(255, 255, 255, 0.09);
-        --border-hover: rgba(255, 255, 255, 0.28);
+        --bg: #ffffff;
+        --surface: #f7f7f7;
+        --card-bg: #f9f9f9;
+        --text: #000000;
+        --text-dim: rgba(0, 0, 0, 0.52);
+        --text-sub: rgba(0, 0, 0, 0.76);
+        --border-subtle: rgba(0, 0, 0, 0.08);
+        --border-hover: rgba(0, 0, 0, 0.28);
         --font-main:
           "Diatype Variable", "ABC Diatype", -apple-system, BlinkMacSystemFont,
           "Inter", "Helvetica Neue", Arial, sans-serif;
-        --window-bg: rgba(24, 24, 24, 0.84);
-        --window-border: rgba(255, 255, 255, 0.15);
+        --window-bg: rgba(255, 255, 255, 0.95);
+        --window-border: rgba(0, 0, 0, 0.12);
         --gutter: 28px;
       }
 
@@ -126,21 +126,21 @@
         font-size: clamp(20px, 2.2vw, 28px);
         font-weight: 500;
         letter-spacing: -0.015em;
-        color: rgba(255, 255, 255, 0.7);
+        color: rgba(0, 0, 0, 0.65);
         display: flex;
         gap: 36px;
         align-items: center;
       }
 
       .header-links a {
-        color: rgba(255, 255, 255, 0.7);
+        color: rgba(0, 0, 0, 0.65);
         transition:
           color 0.2s ease,
           transform 0.2s ease;
         display: inline-block;
       }
       .header-links a:hover {
-        color: #ffffff;
+        color: #000000;
         transform: translateY(-1px);
       }
 
@@ -153,7 +153,6 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
-        mix-blend-mode: difference;
         transition:
           opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
           visibility 0.35s ease,
@@ -214,7 +213,7 @@
         font-weight: 500;
         letter-spacing: 0.16em;
         text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.45);
+        color: rgba(0, 0, 0, 0.45);
         opacity: 0;
         transform: translateX(4px);
         transition:
@@ -229,13 +228,13 @@
       .editorial-scrollbar.is-scrolling .scrollbar-label {
         opacity: 1;
         transform: translateX(0);
-        color: rgba(255, 255, 255, 0.95);
+        color: #000000;
       }
 
       .scrollbar-track {
         width: 2px;
         height: 180px;
-        background: rgba(255, 255, 255, 0.14);
+        background: rgba(0, 0, 0, 0.12);
         border-radius: 999px;
         position: relative;
         cursor: pointer;
@@ -246,7 +245,7 @@
 
       .editorial-scrollbar:hover .scrollbar-track {
         width: 4px;
-        background: rgba(255, 255, 255, 0.25);
+        background: rgba(0, 0, 0, 0.24);
       }
 
       .scrollbar-thumb {
@@ -255,9 +254,9 @@
         left: 0;
         width: 100%;
         height: 38px;
-        background: #ffffff;
+        background: #000000;
         border-radius: 999px;
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         cursor: grab;
         transition:
           background 0.18s ease,
@@ -266,7 +265,7 @@
 
       .scrollbar-thumb:active {
         cursor: grabbing;
-        box-shadow: 0 0 16px rgba(255, 255, 255, 0.85);
+        box-shadow: 0 0 16px rgba(0, 0, 0, 0.45);
       }
 
       .nav-arrow-btn {
@@ -275,20 +274,23 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        color: rgba(255, 255, 255, 0.75);
+        color: rgba(0, 0, 0, 0.75);
         cursor: pointer;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid rgba(0, 0, 0, 0.12);
         border-radius: 50%;
         backdrop-filter: blur(8px);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
         transition:
           color 0.18s ease,
           transform 0.18s ease,
-          background 0.18s ease;
+          background 0.18s ease,
+          box-shadow 0.18s ease;
       }
       .nav-arrow-btn:hover {
-        color: #ffffff;
-        background: rgba(255, 255, 255, 0.18);
+        color: #000000;
+        background: #ffffff;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
         transform: scale(1.12);
       }
       .nav-arrow-btn svg {
@@ -308,7 +310,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #000000;
+        background: #ffffff;
       }
 
       .desktop-icons-dock {
@@ -344,7 +346,7 @@
       }
       .desktop-icon-item:hover .desktop-icon-thumb {
         transform: scale(1.06) translateY(-4px);
-        filter: drop-shadow(0 15px 30px rgba(255, 255, 255, 0.2));
+        filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.16));
       }
 
       /* Matched framing: avatar and HDD have identical dimensions and visual weight */
@@ -353,7 +355,7 @@
         height: 100%;
         object-fit: contain;
         display: block;
-        filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.8));
+        filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.12));
       }
 
       .desktop-icon-label {
@@ -361,7 +363,7 @@
         font-size: 15px;
         font-weight: 500;
         letter-spacing: -0.01em;
-        color: #ffffff;
+        color: #000000;
         text-align: center;
         white-space: nowrap;
       }
@@ -372,7 +374,7 @@
       .overlay-backdrop {
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.72);
+        background: rgba(0, 0, 0, 0.35);
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
         z-index: 2000;
@@ -392,7 +394,7 @@
         background-color: var(--window-bg);
         border: 1px solid var(--window-border);
         border-radius: 1.6rem;
-        box-shadow: 0 1.5rem 5rem rgba(0, 0, 0, 0.85);
+        box-shadow: 0 1.5rem 5rem rgba(0, 0, 0, 0.16);
         backdrop-filter: blur(2.5rem);
         -webkit-backdrop-filter: blur(2.5rem);
         width: 100%;
@@ -449,7 +451,7 @@
         transform: translateX(-50%);
         font-size: 13.5px;
         font-weight: 500;
-        color: rgba(255, 255, 255, 0.85);
+        color: rgba(0, 0, 0, 0.85);
         display: flex;
         align-items: center;
         gap: 6px;
@@ -457,7 +459,7 @@
 
       .rtf-window-divider {
         height: 1px;
-        background: rgba(255, 255, 255, 0.12);
+        background: rgba(0, 0, 0, 0.08);
         width: 100%;
       }
 
@@ -471,15 +473,15 @@
       }
 
       .rtf-left-col {
-        color: rgba(255, 255, 255, 0.9);
+        color: rgba(0, 0, 0, 0.8);
       }
       .rtf-left-col .contact-label {
-        color: rgba(255, 255, 255, 0.85);
+        color: #000000;
         font-weight: 600;
         margin-bottom: 6px;
       }
       .rtf-left-col a.email-link {
-        color: #ffffff;
+        color: #000000;
         word-break: break-all;
       }
       .rtf-left-col a.email-link:hover {
@@ -487,16 +489,16 @@
       }
       .rtf-left-col .location-tag {
         font-size: 11px;
-        color: rgba(255, 255, 255, 0.5);
+        color: rgba(0, 0, 0, 0.45);
         letter-spacing: 0.08em;
         margin-top: 22px;
       }
 
       .rtf-right-col {
-        color: rgba(255, 255, 255, 0.88);
+        color: rgba(0, 0, 0, 0.82);
       }
       .rtf-right-col b {
-        color: #ffffff;
+        color: #000000;
         font-weight: 600;
       }
       .rtf-right-col p {
@@ -542,7 +544,7 @@
         font-weight: 400;
         letter-spacing: -0.01em;
         line-height: 1.1;
-        color: #ffffff;
+        color: #000000;
         text-transform: uppercase;
         margin: 0 0 16px 0;
         font-variation-settings:
@@ -559,7 +561,7 @@
         line-height: 1.55;
         letter-spacing: 0.04em;
         text-transform: uppercase;
-        color: #ffffff;
+        color: #000000;
         font-variation-settings:
           "slnt" 0,
           "MONO" 0;
@@ -583,15 +585,30 @@
 
       .project-credit-role {
         font-weight: 400;
-        color: rgba(255, 255, 255, 0.82);
+        color: rgba(0, 0, 0, 0.6);
       }
 
       .project-credit-name {
         font-weight: 700;
-        color: #ffffff;
+        color: #000000;
       }
 
-      /* BALANCED 3-PROJECTS-PER-ROW GRIDS */
+      .project-credit-desc {
+        margin-top: 6px;
+        text-transform: none;
+        font-size: 13.5px;
+        color: rgba(0, 0, 0, 0.72);
+        max-width: 760px;
+        line-height: 1.55;
+        letter-spacing: 0.01em;
+      }
+
+      .project-editorial-header.align-right .project-credit-desc {
+        text-align: right;
+        margin-left: auto;
+      }
+
+      /* BALANCED 3-PROJECTS-PER-ROW GRIDS & EDITORIAL CAROUSEL */
       .photo-editorial-grid,
       .motion-showcase-grid {
         display: grid;
@@ -599,6 +616,88 @@
         gap: 52px 32px;
         margin-bottom: 110px;
         width: 100%;
+      }
+
+      /* EDITORIAL INFINITE LOOPING CAROUSEL MARQUEE */
+      .editorial-carousel-wrapper {
+        position: relative;
+        width: 100%;
+        margin-bottom: 110px;
+        overflow: hidden;
+        padding: 6px 0 28px 0;
+        mask-image: linear-gradient(
+          to right,
+          transparent,
+          black 3%,
+          black 97%,
+          transparent
+        );
+        -webkit-mask-image: linear-gradient(
+          to right,
+          transparent,
+          black 3%,
+          black 97%,
+          transparent
+        );
+      }
+
+      .editorial-carousel-track {
+        display: flex;
+        gap: 28px;
+        width: max-content;
+        animation: infiniteMarqueeLoop 30s linear infinite;
+        will-change: transform;
+      }
+
+      .editorial-carousel-wrapper:hover .editorial-carousel-track {
+        animation-play-state: paused;
+      }
+
+      .carousel-marquee-group {
+        display: flex;
+        gap: 28px;
+        flex-shrink: 0;
+      }
+
+      @keyframes infiniteMarqueeLoop {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(calc(-50% - 14px));
+        }
+      }
+
+      .editorial-carousel-track .showcase-card {
+        flex: 0 0 390px;
+        width: 390px;
+        opacity: 1;
+        transform: none;
+        cursor: pointer;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .editorial-carousel-track .showcase-card:hover {
+        transform: translateY(-8px);
+      }
+
+      .editorial-carousel-track .showcase-media-box {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 3 / 4.2; /* Wider, balanced high-fashion editorial proportions */
+        overflow: hidden;
+        border-radius: 6px;
+        background: #f2f2f2;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        transition:
+          border-color 0.35s ease,
+          box-shadow 0.35s ease;
+      }
+      .editorial-carousel-track .showcase-card:hover .showcase-media-box {
+        border-color: rgba(0, 0, 0, 0.28);
+        box-shadow:
+          0 22px 52px rgba(0, 0, 0, 0.16),
+          0 0 25px rgba(0, 0, 0, 0.04);
       }
 
       /* UNIFIED SHOWCASE CARD */
@@ -656,18 +755,18 @@
         aspect-ratio: 4 / 5;
         overflow: hidden;
         border-radius: 6px;
-        background: #0d0d0d;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.85);
+        background: #f2f2f2;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
         transition:
           border-color 0.35s ease,
           box-shadow 0.35s ease;
       }
       .showcase-card:hover .showcase-media-box {
-        border-color: rgba(255, 255, 255, 0.32);
+        border-color: rgba(0, 0, 0, 0.28);
         box-shadow:
-          0 22px 52px rgba(0, 0, 0, 0.95),
-          0 0 25px rgba(255, 255, 255, 0.04);
+          0 20px 48px rgba(0, 0, 0, 0.15),
+          0 0 20px rgba(0, 0, 0, 0.04);
       }
 
       .showcase-media-box img {
@@ -691,16 +790,17 @@
         width: 32px;
         height: 32px;
         border-radius: 50%;
-        background: rgba(0, 0, 0, 0.65);
+        background: rgba(255, 255, 255, 0.88);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(0, 0, 0, 0.12);
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #ffffff;
+        color: #000000;
         opacity: 0;
         transform: scale(0.85);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         transition:
           opacity 0.25s ease,
           transform 0.25s ease;
@@ -725,27 +825,40 @@
         aspect-ratio: 4 / 5;
         border-radius: 6px;
         overflow: hidden;
-        background: #0d0d0d;
+        background: #f2f2f2;
         cursor: pointer;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.85);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
         transition:
           border-color 0.35s ease,
           box-shadow 0.35s ease;
       }
       .showcase-card:hover .hover-video-container {
-        border-color: rgba(255, 255, 255, 0.32);
+        border-color: rgba(0, 0, 0, 0.28);
         box-shadow:
-          0 22px 52px rgba(0, 0, 0, 0.95),
-          0 0 25px rgba(255, 255, 255, 0.04);
+          0 20px 48px rgba(0, 0, 0, 0.15),
+          0 0 20px rgba(0, 0, 0, 0.04);
       }
 
-      .hover-video-container video {
+      .hover-video-container video,
+      .hover-video-container iframe,
+      .hover-video-container .yt-video-frame {
         width: 100%;
         height: 100%;
         object-fit: cover;
         display: block;
         background: #000000;
+      }
+
+      .hover-video-container iframe {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 225%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+        border: 0;
+        pointer-events: none;
       }
 
       .hover-video-container .video-cover-img {
@@ -775,18 +888,20 @@
         display: flex;
         align-items: center;
         gap: 8px;
-        background: rgba(0, 0, 0, 0.76);
+        background: rgba(255, 255, 255, 0.9);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         padding: 6px 14px;
         border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        color: #000000;
         font-size: 11px;
         letter-spacing: 0.08em;
         text-transform: uppercase;
+        font-weight: 500;
         z-index: 3;
         pointer-events: none;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
         transition:
           opacity 0.25s ease,
           transform 0.25s ease,
@@ -794,7 +909,7 @@
       }
       .hover-video-container:hover .play-badge-indicator {
         transform: scale(1.04);
-        background: rgba(0, 0, 0, 0.92);
+        background: #ffffff;
       }
       .hover-video-container.is-active .play-badge-indicator {
         opacity: 0;
@@ -802,7 +917,7 @@
       .play-badge-indicator svg {
         width: 12px;
         height: 12px;
-        fill: #ffffff;
+        fill: #000000;
       }
 
       .sound-toggle-btn {
@@ -812,27 +927,32 @@
         width: 34px;
         height: 34px;
         border-radius: 50%;
-        background: rgba(0, 0, 0, 0.72);
+        background: rgba(255, 255, 255, 0.9);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(0, 0, 0, 0.12);
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #ffffff;
+        color: #000000;
         z-index: 4;
         cursor: pointer;
         opacity: 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         transition:
           opacity 0.2s ease,
-          transform 0.2s ease;
+          transform 0.2s ease,
+          background 0.2s ease;
       }
       .hover-video-container:hover .sound-toggle-btn {
         opacity: 1;
       }
       .sound-toggle-btn:hover {
         transform: scale(1.1);
-        background: rgba(0, 0, 0, 0.9);
+        background: #ffffff;
+      }
+      .sound-toggle-btn.is-muted {
+        color: rgba(0, 0, 0, 0.4);
       }
       .sound-toggle-btn svg {
         width: 14px;
@@ -854,20 +974,20 @@
         font-size: 11px;
         text-transform: uppercase;
         letter-spacing: 0.14em;
-        color: rgba(255, 255, 255, 0.45);
+        color: rgba(0, 0, 0, 0.45);
       }
 
       .showcase-index {
         font-family: var(--font-main);
         font-weight: 600;
-        color: rgba(255, 255, 255, 0.55);
+        color: rgba(0, 0, 0, 0.55);
         letter-spacing: 0.1em;
       }
 
       .showcase-category-tag {
         font-size: 10.5px;
         letter-spacing: 0.12em;
-        color: rgba(255, 255, 255, 0.4);
+        color: rgba(0, 0, 0, 0.45);
       }
 
       .showcase-title-row {
@@ -882,29 +1002,29 @@
         font-weight: 500;
         letter-spacing: -0.02em;
         line-height: 1.2;
-        color: #ffffff;
+        color: #000000;
         transition: color 0.2s ease;
       }
       .showcase-card:hover .showcase-title {
-        color: #ffffff;
+        color: #000000;
       }
 
       .showcase-arrow {
         font-size: 16px;
-        color: rgba(255, 255, 255, 0.35);
+        color: rgba(0, 0, 0, 0.35);
         transform: translate(0, 0);
         transition:
           transform 0.25s ease,
           color 0.25s ease;
       }
       .showcase-card:hover .showcase-arrow {
-        color: #ffffff;
+        color: #000000;
         transform: translate(2px, -2px);
       }
 
       .showcase-desc {
         font-size: 13.5px;
-        color: rgba(255, 255, 255, 0.65);
+        color: rgba(0, 0, 0, 0.68);
         letter-spacing: -0.01em;
         line-height: 1.45;
       }
@@ -922,17 +1042,17 @@
         letter-spacing: 0.08em;
         padding: 3px 9px;
         border-radius: 12px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.09);
-        color: rgba(255, 255, 255, 0.55);
+        background: rgba(0, 0, 0, 0.04);
+        border: 1px solid rgba(0, 0, 0, 0.09);
+        color: rgba(0, 0, 0, 0.6);
         transition:
           background 0.2s ease,
           border-color 0.2s ease,
           color 0.2s ease;
       }
       .showcase-card:hover .showcase-pill {
-        border-color: rgba(255, 255, 255, 0.18);
-        color: rgba(255, 255, 255, 0.75);
+        border-color: rgba(0, 0, 0, 0.25);
+        color: #000000;
       }
 
       /* =========================================================
@@ -993,6 +1113,13 @@
           gap: 40px 24px;
           margin-bottom: 80px;
         }
+        .editorial-carousel-wrapper {
+          margin-bottom: 80px;
+        }
+        .editorial-carousel-track .showcase-card {
+          flex: 0 0 calc(45% - 14px);
+          min-width: 240px;
+        }
         .projects-container {
           padding: 70px 32px 130px;
         }
@@ -1024,6 +1151,16 @@
           grid-template-columns: 1fr;
           gap: 36px;
           margin-bottom: 60px;
+        }
+        .editorial-carousel-wrapper {
+          margin-bottom: 60px;
+        }
+        .editorial-carousel-track .showcase-card {
+          flex: 0 0 78%;
+          min-width: 220px;
+        }
+        .editorial-carousel-btn {
+          display: none;
         }
         .projects-container {
           padding: 50px 20px 100px;
@@ -1131,7 +1268,7 @@
             title="View Projects"
           >
             <div class="desktop-icon-thumb">
-              <img src="./media/HHD.png" alt="Projects" />
+              <img src="./media/HHD.webp" alt="Projects" />
             </div>
             <span class="desktop-icon-label">Projects</span>
           </a>
@@ -1145,7 +1282,7 @@
           >
             <div class="desktop-icon-thumb">
               <img
-                src="./media/avatar_claudette_matched.png"
+                src="./media/avatar_claudette_matched.webp"
                 alt="About me.rtf"
               />
             </div>
@@ -1160,202 +1297,686 @@
          BOTTOM: Motion / Video Film Showcase
          ========================================================= -->
       <div class="projects-container" id="projects-page">
-        <!-- ==================== 1. PHOTOGRAPHY & EDITORIAL ==================== -->
+        <!-- ==================== 1. CASTELLO LUKEBA — GALERIES LAFAYETTE ==================== -->
         <section id="section-photography">
           <div class="project-editorial-header align-left">
-            <h2 class="project-editorial-title">PHOTO SHOOTING</h2>
+            <h2 class="project-editorial-title">CASTELLO LUKEBA — GALERIES LAFAYETTE</h2>
             <div class="project-editorial-credits">
               <div class="project-credit-line">
                 <span class="project-credit-role">EDITORIAL COORDINATOR</span>
                 <span class="project-credit-name">CLAUDETTE KALULU</span>
               </div>
               <div class="project-credit-line">
-                <!-- <span class="project-credit-role">LOCATION</span> -->
-                <span class="project-credit-name">STARTERZ AGENCY</span>
+                <span class="project-credit-role">AGENCY</span>
+                <span class="project-credit-name">STARTERZ</span>
+              </div>
+              <div class="project-credit-desc">
+                Content production for Galeries Lafayette featuring Castello Lukeba. A social-first project focused on creating visual content tailored for digital platforms and social media.
               </div>
             </div>
           </div>
 
-          <div class="photo-editorial-grid">
-            <!-- Card 1: Castello Lukeba -->
-            <div
-              class="showcase-card"
-              id="item-lukeba"
-              onclick="openLightbox('./media/castello_lukeba_opt.jpg')"
-            >
-              <div class="showcase-media-box">
-                <img
-                  src="./media/castello_lukeba_opt.jpg"
-                  alt="Castello Lukeba"
-                  decoding="async"
-                  style="object-position: center 20%"
-                />
-                <div class="photo-zoom-indicator" title="Enlarge image">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <polyline points="9 21 3 21 3 15"></polyline>
-                    <line x1="21" y1="3" x2="14" y2="10"></line>
-                    <line x1="3" y1="21" x2="10" y2="14"></line>
-                  </svg>
+          <div class="editorial-carousel-wrapper">
+            <div class="editorial-carousel-track" id="carousel-lukeba">
+              <!-- Group 1: Primary 4 Photos -->
+              <div class="carousel-marquee-group">
+                <!-- Card 1: Photo 12 -->
+                <div
+                  class="showcase-card"
+                  id="item-lukeba-1"
+                  onclick="openLightbox('./media/Castello Lukeba/PHOTO-12.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Castello Lukeba/PHOTO-12.webp"
+                      alt="Castello Lukeba — Galeries Lafayette"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center 20%"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="showcase-info">
-                <h3 class="showcase-title">Castello Lukeba</h3>
-              </div>
-            </div>
 
-            <!-- Card 2: Haute Form -->
-            <div
-              class="showcase-card"
-              id="item-fashion-editorial"
-              onclick="openLightbox('./media/fashion_editorial_2_opt.jpg')"
-            >
-              <div class="showcase-media-box">
-                <img
-                  src="./media/fashion_editorial_2_opt.jpg"
-                  alt="Haute Form"
-                  decoding="async"
-                  style="object-position: center center"
-                />
-                <div class="photo-zoom-indicator" title="Enlarge image">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <polyline points="9 21 3 21 3 15"></polyline>
-                    <line x1="21" y1="3" x2="14" y2="10"></line>
-                    <line x1="3" y1="21" x2="10" y2="14"></line>
-                  </svg>
+                <!-- Card 2: Photo 21 -->
+                <div
+                  class="showcase-card"
+                  id="item-lukeba-2"
+                  onclick="openLightbox('./media/Castello Lukeba/PHOTO-21.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Castello Lukeba/PHOTO-21.webp"
+                      alt="Castello Lukeba — Galeries Lafayette"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center center"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="showcase-info">
-                <h3 class="showcase-title">Haute Form</h3>
-              </div>
-            </div>
 
-            <!-- Card 3: Pierre Kalulu -->
-            <div
-              class="showcase-card"
-              id="item-pierre-kalulu"
-              onclick="openLightbox('./media/pierre_kalulu_opt.jpg')"
-            >
-              <div class="showcase-media-box">
-                <img
-                  src="./media/pierre_kalulu_opt.jpg"
-                  alt="Pierre Kalulu"
-                  decoding="async"
-                  style="object-position: center center"
-                />
-                <div class="photo-zoom-indicator" title="Enlarge image">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <polyline points="9 21 3 21 3 15"></polyline>
-                    <line x1="21" y1="3" x2="14" y2="10"></line>
-                    <line x1="3" y1="21" x2="10" y2="14"></line>
-                  </svg>
+                <!-- Card 3: Photo 45 -->
+                <div
+                  class="showcase-card"
+                  id="item-lukeba-3"
+                  onclick="openLightbox('./media/Castello Lukeba/PHOTO-45.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Castello Lukeba/PHOTO-45.webp"
+                      alt="Castello Lukeba — Galeries Lafayette"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center center"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="showcase-info">
-                <h3 class="showcase-title">Pierre Kalulu</h3>
-              </div>
-            </div>
 
-            <!-- Card 4: Arena Lights -->
-            <div
-              class="showcase-card"
-              id="item-sport-accent"
-              onclick="openLightbox('./media/fashion_sport_3_opt.jpg')"
-            >
-              <div class="showcase-media-box">
-                <img
-                  src="./media/fashion_sport_3_opt.jpg"
-                  alt="Arena Lights"
-                  decoding="async"
-                  style="object-position: center center"
-                />
-                <div class="photo-zoom-indicator" title="Enlarge image">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <polyline points="9 21 3 21 3 15"></polyline>
-                    <line x1="21" y1="3" x2="14" y2="10"></line>
-                    <line x1="3" y1="21" x2="10" y2="14"></line>
-                  </svg>
+                <!-- Card 4: Photo 47 -->
+                <div
+                  class="showcase-card"
+                  id="item-lukeba-4"
+                  onclick="openLightbox('./media/Castello Lukeba/PHOTO-47.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Castello Lukeba/PHOTO-47.webp"
+                      alt="Castello Lukeba — Galeries Lafayette"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center 25%"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="showcase-info">
-                <h3 class="showcase-title">Arena Lights</h3>
-              </div>
-            </div>
 
-            <!-- Card 5: Matchday Horizon -->
-            <div
-              class="showcase-card"
-              id="item-football-stadium"
-              onclick="openLightbox('./media/fashion_football_1_opt.jpg')"
-            >
-              <div class="showcase-media-box">
-                <img
-                  src="./media/fashion_football_1_opt.jpg"
-                  alt="Matchday Horizon"
-                  decoding="async"
-                  style="object-position: center center"
-                />
-                <div class="photo-zoom-indicator" title="Enlarge image">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <polyline points="9 21 3 21 3 15"></polyline>
-                    <line x1="21" y1="3" x2="14" y2="10"></line>
-                    <line x1="3" y1="21" x2="10" y2="14"></line>
-                  </svg>
+              <!-- Group 2: Seamless Infinite Duplicate -->
+              <div class="carousel-marquee-group" aria-hidden="true">
+                <!-- Card 1 Duplicate -->
+                <div
+                  class="showcase-card"
+                  onclick="openLightbox('./media/Castello Lukeba/PHOTO-12.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Castello Lukeba/PHOTO-12.webp"
+                      alt="Castello Lukeba — Galeries Lafayette"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center 20%"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="showcase-info">
-                <h3 class="showcase-title">Matchday Horizon</h3>
-              </div>
-            </div>
 
-            <!-- Card 6: Influence & Street -->
-            <div
-              class="showcase-card"
-              id="item-parisian-street"
-              onclick="openLightbox('./media/fashion_street_4_opt.jpg')"
-            >
-              <div class="showcase-media-box">
-                <img
-                  src="./media/fashion_street_4_opt.jpg"
-                  alt="Influence & Street"
-                  decoding="async"
-                  style="object-position: center 25%"
-                />
-                <div class="photo-zoom-indicator" title="Enlarge image">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <polyline points="9 21 3 21 3 15"></polyline>
-                    <line x1="21" y1="3" x2="14" y2="10"></line>
-                    <line x1="3" y1="21" x2="10" y2="14"></line>
-                  </svg>
+                <!-- Card 2 Duplicate -->
+                <div
+                  class="showcase-card"
+                  onclick="openLightbox('./media/Castello Lukeba/PHOTO-21.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Castello Lukeba/PHOTO-21.webp"
+                      alt="Castello Lukeba — Galeries Lafayette"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center center"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="showcase-info">
-                <h3 class="showcase-title">Influence &amp; Street</h3>
+
+                <!-- Card 3 Duplicate -->
+                <div
+                  class="showcase-card"
+                  onclick="openLightbox('./media/Castello Lukeba/PHOTO-45.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Castello Lukeba/PHOTO-45.webp"
+                      alt="Castello Lukeba — Galeries Lafayette"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center center"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 4 Duplicate -->
+                <div
+                  class="showcase-card"
+                  onclick="openLightbox('./media/Castello Lukeba/PHOTO-47.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Castello Lukeba/PHOTO-47.webp"
+                      alt="Castello Lukeba — Galeries Lafayette"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center 25%"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- ==================== 2. MOTION & FILM SHOWCASE ==================== -->
-        <section id="section-motion">
+        <!-- ==================== 2. PIERRE KALULU — TURKS & CAICOS ==================== -->
+        <section id="section-kalulu">
           <div class="project-editorial-header align-right">
-            <h2 class="project-editorial-title">VIDEO SHOOTING</h2>
+            <h2 class="project-editorial-title">PIERRE KALULU — TURKS & CAICOS</h2>
             <div class="project-editorial-credits">
               <div class="project-credit-line">
-                <span class="project-credit-role">EDITORIAL COORDINATION</span>
+                <span class="project-credit-role">EDITORIAL COORDINATOR</span>
                 <span class="project-credit-name">CLAUDETTE KALULU</span>
               </div>
               <div class="project-credit-line">
-                <span class="project-credit-name">STARTERZ AGENCY</span>
+                <span class="project-credit-role">AGENCY</span>
+                <span class="project-credit-name">STARTERZ</span>
+              </div>
+              <div class="project-credit-desc">
+                Lifestyle content production. A visual project designed to capture life beyond football through natural and immersive content.
               </div>
             </div>
           </div>
 
+          <div class="editorial-carousel-wrapper">
+            <div class="editorial-carousel-track" id="carousel-kalulu">
+              <!-- Group 1: Primary 4 Photos -->
+              <div class="carousel-marquee-group">
+                <!-- Card 1: DSC07467 -->
+                <div
+                  class="showcase-card"
+                  id="item-kalulu-1"
+                  onclick="openLightbox('./media/Pierre Kalulu/DSC07467.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Pierre Kalulu/DSC07467.webp"
+                      alt="Pierre Kalulu — Turks & Caicos"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center 25%"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 2: DSC07507 -->
+                <div
+                  class="showcase-card"
+                  id="item-kalulu-2"
+                  onclick="openLightbox('./media/Pierre Kalulu/DSC07507.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Pierre Kalulu/DSC07507.webp"
+                      alt="Pierre Kalulu — Turks & Caicos"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center center"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 3: DSC08174 -->
+                <div
+                  class="showcase-card"
+                  id="item-kalulu-3"
+                  onclick="openLightbox('./media/Pierre Kalulu/DSC08174.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Pierre Kalulu/DSC08174.webp"
+                      alt="Pierre Kalulu — Turks & Caicos"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center center"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 4: DSC08256 -->
+                <div
+                  class="showcase-card"
+                  id="item-kalulu-4"
+                  onclick="openLightbox('./media/Pierre Kalulu/DSC08256.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Pierre Kalulu/DSC08256.webp"
+                      alt="Pierre Kalulu — Turks & Caicos"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center 20%"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Group 2: Seamless Infinite Duplicate -->
+              <div class="carousel-marquee-group" aria-hidden="true">
+                <!-- Card 1 Duplicate -->
+                <div
+                  class="showcase-card"
+                  onclick="openLightbox('./media/Pierre Kalulu/DSC07467.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Pierre Kalulu/DSC07467.webp"
+                      alt="Pierre Kalulu — Turks & Caicos"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center 25%"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 2 Duplicate -->
+                <div
+                  class="showcase-card"
+                  onclick="openLightbox('./media/Pierre Kalulu/DSC07507.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Pierre Kalulu/DSC07507.webp"
+                      alt="Pierre Kalulu — Turks & Caicos"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center center"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 3 Duplicate -->
+                <div
+                  class="showcase-card"
+                  onclick="openLightbox('./media/Pierre Kalulu/DSC08174.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Pierre Kalulu/DSC08174.webp"
+                      alt="Pierre Kalulu — Turks & Caicos"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center center"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 4 Duplicate -->
+                <div
+                  class="showcase-card"
+                  onclick="openLightbox('./media/Pierre Kalulu/DSC08256.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Pierre Kalulu/DSC08256.webp"
+                      alt="Pierre Kalulu — Turks & Caicos"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center 20%"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== 3. MAXENCE CAQUERET — GALERIES LAFAYETTE ==================== -->
+        <section id="section-caqueret-photo">
+          <div class="project-editorial-header align-left">
+            <h2 class="project-editorial-title">MAXENCE CAQUERET — GALERIES LAFAYETTE</h2>
+            <div class="project-editorial-credits">
+              <div class="project-credit-line">
+                <span class="project-credit-role">EDITORIAL COORDINATOR</span>
+                <span class="project-credit-name">CLAUDETTE KALULU</span>
+              </div>
+              <div class="project-credit-line">
+                <span class="project-credit-role">AGENCY</span>
+                <span class="project-credit-name">STARTERZ</span>
+              </div>
+              <div class="project-credit-desc">
+                Content production for Galeries Lafayette featuring Maxence Caqueret. A social-first project focused on creating visual content tailored for digital platforms and social media.
+              </div>
+            </div>
+          </div>
+
+          <div class="editorial-carousel-wrapper">
+            <div class="editorial-carousel-track" id="carousel-caqueret">
+              <!-- Group 1: Primary 4 Photos -->
+              <div class="carousel-marquee-group">
+                <!-- Card 1: GL X MAXENCE CAQUERET4 -->
+                <div
+                  class="showcase-card"
+                  id="item-caqueret-1"
+                  onclick="openLightbox('./media/Maxence Caqueret/GL X MAXENCE CAQUERET4.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Maxence Caqueret/GL X MAXENCE CAQUERET4.webp"
+                      alt="Maxence Caqueret — Galeries Lafayette"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center center"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 2: GL X MAXENCE CAQUERET6 -->
+                <div
+                  class="showcase-card"
+                  id="item-caqueret-2"
+                  onclick="openLightbox('./media/Maxence Caqueret/GL X MAXENCE CAQUERET6.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Maxence Caqueret/GL X MAXENCE CAQUERET6.webp"
+                      alt="Maxence Caqueret — Galeries Lafayette"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center 20%"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 3: GL X MAXENCE CAQUERET11 -->
+                <div
+                  class="showcase-card"
+                  id="item-caqueret-3"
+                  onclick="openLightbox('./media/Maxence Caqueret/GL X MAXENCE CAQUERET11.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Maxence Caqueret/GL X MAXENCE CAQUERET11.webp"
+                      alt="Maxence Caqueret — Galeries Lafayette"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center center"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 4: GL X MAXENCE CAQUERET17 -->
+                <div
+                  class="showcase-card"
+                  id="item-caqueret-4"
+                  onclick="openLightbox('./media/Maxence Caqueret/GL X MAXENCE CAQUERET17.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Maxence Caqueret/GL X MAXENCE CAQUERET17.webp"
+                      alt="Maxence Caqueret — Galeries Lafayette"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center 25%"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Group 2: Seamless Infinite Duplicate -->
+              <div class="carousel-marquee-group" aria-hidden="true">
+                <!-- Card 1 Duplicate -->
+                <div
+                  class="showcase-card"
+                  onclick="openLightbox('./media/Maxence Caqueret/GL X MAXENCE CAQUERET4.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Maxence Caqueret/GL X MAXENCE CAQUERET4.webp"
+                      alt="Maxence Caqueret — Galeries Lafayette"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center center"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 2 Duplicate -->
+                <div
+                  class="showcase-card"
+                  onclick="openLightbox('./media/Maxence Caqueret/GL X MAXENCE CAQUERET6.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Maxence Caqueret/GL X MAXENCE CAQUERET6.webp"
+                      alt="Maxence Caqueret — Galeries Lafayette"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center 20%"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 3 Duplicate -->
+                <div
+                  class="showcase-card"
+                  onclick="openLightbox('./media/Maxence Caqueret/GL X MAXENCE CAQUERET11.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Maxence Caqueret/GL X MAXENCE CAQUERET11.webp"
+                      alt="Maxence Caqueret — Galeries Lafayette"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center center"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 4 Duplicate -->
+                <div
+                  class="showcase-card"
+                  onclick="openLightbox('./media/Maxence Caqueret/GL X MAXENCE CAQUERET17.webp')"
+                >
+                  <div class="showcase-media-box">
+                    <img
+                      src="./media/Maxence Caqueret/GL X MAXENCE CAQUERET17.webp"
+                      alt="Maxence Caqueret — Galeries Lafayette"
+                      decoding="async"
+                      loading="lazy"
+                      style="object-position: center 25%"
+                    />
+                    <div class="photo-zoom-indicator" title="Enlarge image">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== 4. VIDEO & MOTION FILMS ==================== -->
+        <section id="section-motion">
           <div class="motion-showcase-grid">
             <!-- Video 1: Maxence Caqueret -->
             <div class="showcase-card" id="item-caqueret">
@@ -1366,12 +1987,12 @@
                 onclick="toggleVideoPlay('vid-caqueret')"
               >
                 <img
-                  src="./media/maxence_caqueret_cover_opt.jpg"
+                  src="./media/Maxence Caqueret/GL X MAXENCE CAQUERET11.webp"
                   class="video-cover-img"
-                  alt="Maxence Caqueret Film Cover"
-                  style="object-position: center 20%"
+                  alt="Maxence Caqueret — Galeries Lafayette"
+                  style="object-position: center center"
                 />
-                <video id="vid-caqueret" playsinline loop muted preload="auto">
+                <video id="vid-caqueret" playsinline loop preload="auto">
                   <source src="media/maxence_caqueret.mp4" type="video/mp4" />
                 </video>
                 <div class="play-badge-indicator">
@@ -1401,7 +2022,8 @@
                 </button>
               </div>
               <div class="showcase-info">
-                <h3 class="showcase-title">Maxence Caqueret</h3>
+                <h3 class="showcase-title">Maxence Caqueret — Galeries Lafayette</h3>
+                <p class="showcase-desc">Promotional content for the brand’s social media channels.</p>
               </div>
             </div>
 
@@ -1414,17 +2036,16 @@
                 onclick="toggleVideoPlay('vid-starterz')"
               >
                 <img
-                  src="./media/starterz_cover_opt.jpg"
+                  src="./media/starterz_cover.webp"
                   class="video-cover-img"
-                  alt="Starterz Campaign Cover"
+                  alt="Starterz — Agency Introduction Video"
                   style="object-position: center center"
                 />
                 <video
                   id="vid-starterz"
                   playsinline
                   loop
-                  muted
-                  preload="metadata"
+                  preload="auto"
                 >
                   <source src="media/starterz_reel.mp4" type="video/mp4" />
                 </video>
@@ -1455,7 +2076,8 @@
                 </button>
               </div>
               <div class="showcase-info">
-                <h3 class="showcase-title">Starterz</h3>
+                <h3 class="showcase-title">Starterz — Agency Introduction Video</h3>
+                <p class="showcase-desc">A presentation of Starterz’s universe, identity, and creative expertise.</p>
               </div>
             </div>
 
@@ -1468,13 +2090,13 @@
                 onclick="toggleVideoPlay('vid-malo')"
               >
                 <img
-                  src="./media/malo_gusto_cover_opt.jpg"
+                  src="./media/malo_gusto_cover.webp"
                   class="video-cover-img"
-                  alt="Malo Gusto Film Cover"
+                  alt="Malo Gusto — Martinique"
                   style="object-position: center 25%"
                 />
-                <video id="vid-malo" playsinline loop muted preload="metadata">
-                  <source src="media/malo_gusto.mp4" type="video/mp4" />
+                <video id="vid-malo" playsinline loop preload="auto">
+                  <source src="./media/malo_gusto.mp4" type="video/mp4" />
                 </video>
                 <div class="play-badge-indicator">
                   <svg viewBox="0 0 24 24">
@@ -1503,7 +2125,8 @@
                 </button>
               </div>
               <div class="showcase-info">
-                <h3 class="showcase-title">Malo Gusto</h3>
+                <h3 class="showcase-title">Malo Gusto — Martinique</h3>
+                <p class="showcase-desc">A YouTube project designed to showcase Martinique from a different perspective through a more personal and immersive approach.</p>
               </div>
             </div>
           </div>
@@ -1638,6 +2261,18 @@
         }, 800);
       }
 
+      // Horizontal carousel scroll handler
+      function scrollCarousel(trackId, direction) {
+        const track = document.getElementById(trackId);
+        if (!track) return;
+        const slide = track.querySelector(".showcase-card");
+        const scrollAmount = slide ? (slide.offsetWidth + 28) * 2 : 560;
+        track.scrollBy({
+          left: direction * scrollAmount,
+          behavior: "smooth",
+        });
+      }
+
       // Initial state: start locked on top screen unless direct section hash is specified
       function initHomeLock() {
         if ("scrollRestoration" in history) {
@@ -1685,7 +2320,10 @@
         }
       }
 
-      window.addEventListener("DOMContentLoaded", initHomeLock);
+      window.addEventListener("DOMContentLoaded", () => {
+        initHomeLock();
+        initYouTubeVideoCards();
+      });
 
       // Re-lock when scrolled back to the very top (first 100vh page)
       window.addEventListener(
@@ -1807,24 +2445,155 @@
         }
       }
 
-      // Video Hover-to-Play Handlers
+      // =========================================================
+      // YOUTUBE & HTML5 VIDEO HOVER-TO-PLAY WITH SOUND
+      // =========================================================
+      const ytPlayers = {};
+      let isYTReady = false;
+
+      function extractYouTubeId(url) {
+        if (!url) return null;
+        const match = url.match(
+          /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
+        );
+        return match ? match[1] : null;
+      }
+
+      function setupYTPlayer(elementId, youtubeId) {
+        if (ytPlayers[elementId]) return;
+        if (!window.YT || !YT.Player) return;
+
+        ytPlayers[elementId] = new YT.Player(elementId, {
+          videoId: youtubeId,
+          playerVars: {
+            autoplay: 0,
+            controls: 0,
+            disablekb: 1,
+            fs: 0,
+            iv_load_policy: 3,
+            loop: 1,
+            playlist: youtubeId,
+            modestbranding: 1,
+            playsinline: 1,
+            rel: 0,
+            showinfo: 0,
+            origin: window.location.origin || window.location.href,
+          },
+          events: {
+            onReady: (event) => {
+              try {
+                event.target.unMute();
+                event.target.setVolume(100);
+              } catch (e) {}
+            },
+          },
+        });
+      }
+
+      window.onYouTubeIframeAPIReady = function () {
+        isYTReady = true;
+        document.querySelectorAll(".yt-video-frame").forEach((frame) => {
+          const ytId = frame.getAttribute("data-yt-id");
+          if (ytId && frame.id) {
+            setupYTPlayer(frame.id, ytId);
+          }
+        });
+      };
+
+      function initYouTubeVideoCards() {
+        document.querySelectorAll(".hover-video-container video").forEach((vid) => {
+          const source = vid.querySelector("source");
+          const src =
+            (source ? source.getAttribute("src") : "") ||
+            vid.getAttribute("src") ||
+            "";
+          const ytId = extractYouTubeId(src);
+
+          if (ytId) {
+            const vidId = vid.id;
+            const ytPlaceholder = document.createElement("div");
+            ytPlaceholder.id = vidId;
+            ytPlaceholder.className = "yt-video-frame";
+            ytPlaceholder.setAttribute("data-yt-id", ytId);
+            vid.parentNode.replaceChild(ytPlaceholder, vid);
+
+            if (isYTReady && window.YT && YT.Player) {
+              setupYTPlayer(vidId, ytId);
+            }
+          }
+        });
+      }
+
+      // Video Hover-to-Play Handlers with Audio (HTML5 & YouTube)
       function playHoverVideo(videoId) {
+        // Pause any other standard HTML5 video
+        document.querySelectorAll("video").forEach((v) => {
+          if (v.id !== videoId && !v.paused) {
+            v.pause();
+            const c = v.closest(".hover-video-container");
+            if (c) c.classList.remove("is-active");
+          }
+        });
+
+        // Pause any other YouTube video
+        Object.keys(ytPlayers).forEach((id) => {
+          if (id !== videoId && ytPlayers[id] && typeof ytPlayers[id].pauseVideo === "function") {
+            try {
+              ytPlayers[id].pauseVideo();
+            } catch (e) {}
+            const c = document.getElementById(id)?.closest(".hover-video-container");
+            if (c) c.classList.remove("is-active");
+          }
+        });
+
+        // 1. Check if it's a registered YouTube player
+        if (ytPlayers[videoId] && typeof ytPlayers[videoId].playVideo === "function") {
+          const container = document.getElementById(videoId)?.closest(".hover-video-container");
+          if (container) container.classList.add("is-active");
+          try {
+            ytPlayers[videoId].unMute();
+            ytPlayers[videoId].setVolume(100);
+            ytPlayers[videoId].playVideo();
+          } catch (err) {
+            console.warn("YouTube play error:", err);
+          }
+          return;
+        }
+
+        // 2. Otherwise standard HTML5 video
         const vid = document.getElementById(videoId);
-        if (vid) {
+        if (vid && typeof vid.play === "function") {
           const container = vid.closest(".hover-video-container");
           if (container) container.classList.add("is-active");
+
+          vid.muted = false;
+          vid.volume = 1.0;
+
           const playPromise = vid.play();
           if (playPromise !== undefined) {
             playPromise.catch((err) => {
-              console.log("Video auto-play prevented:", err);
+              console.warn("Unmuted autoplay restricted, attempting muted fallback:", err);
+              vid.muted = true;
+              vid.play().catch(() => {});
             });
           }
         }
       }
 
       function pauseHoverVideo(videoId) {
+        // 1. YouTube player
+        if (ytPlayers[videoId] && typeof ytPlayers[videoId].pauseVideo === "function") {
+          const container = document.getElementById(videoId)?.closest(".hover-video-container");
+          if (container) container.classList.remove("is-active");
+          try {
+            ytPlayers[videoId].pauseVideo();
+          } catch (e) {}
+          return;
+        }
+
+        // 2. Standard HTML5 video
         const vid = document.getElementById(videoId);
-        if (vid) {
+        if (vid && typeof vid.pause === "function") {
           const container = vid.closest(".hover-video-container");
           if (container) container.classList.remove("is-active");
           vid.pause();
@@ -1832,8 +2601,25 @@
       }
 
       function toggleVideoPlay(videoId) {
+        // 1. YouTube player
+        if (ytPlayers[videoId] && typeof ytPlayers[videoId].getPlayerState === "function") {
+          try {
+            const state = ytPlayers[videoId].getPlayerState();
+            // 1 = playing, 3 = buffering
+            if (state === 1 || state === 3) {
+              pauseHoverVideo(videoId);
+            } else {
+              playHoverVideo(videoId);
+            }
+          } catch (e) {
+            playHoverVideo(videoId);
+          }
+          return;
+        }
+
+        // 2. Standard HTML5 video
         const vid = document.getElementById(videoId);
-        if (vid) {
+        if (vid && typeof vid.play === "function") {
           if (vid.paused) {
             playHoverVideo(videoId);
           } else {
@@ -1844,11 +2630,51 @@
 
       function toggleVideoMute(event, videoId) {
         event.stopPropagation();
+
+        // 1. YouTube player
+        if (ytPlayers[videoId] && typeof ytPlayers[videoId].isMuted === "function") {
+          try {
+            const isMuted = ytPlayers[videoId].isMuted();
+            if (isMuted) {
+              ytPlayers[videoId].unMute();
+            } else {
+              ytPlayers[videoId].mute();
+            }
+            const btn = event.currentTarget;
+            if (btn) {
+              btn.classList.toggle("is-muted", !isMuted);
+            }
+          } catch (e) {}
+          return;
+        }
+
+        // 2. Standard HTML5 video
         const vid = document.getElementById(videoId);
         if (vid) {
           vid.muted = !vid.muted;
+          const btn = event.currentTarget;
+          if (btn) {
+            btn.classList.toggle("is-muted", vid.muted);
+          }
         }
       }
+
+      // Unlock audio on first user page click
+      function unlockPageAudio() {
+        document.querySelectorAll("video").forEach((vid) => {
+          vid.muted = false;
+        });
+        Object.keys(ytPlayers).forEach((id) => {
+          try {
+            ytPlayers[id].unMute();
+            ytPlayers[id].setVolume(100);
+          } catch (e) {}
+        });
+        window.removeEventListener("click", unlockPageAudio);
+        window.removeEventListener("touchstart", unlockPageAudio);
+      }
+      window.addEventListener("click", unlockPageAudio, { once: true });
+      window.addEventListener("touchstart", unlockPageAudio, { once: true });
 
       // Lightbox Zoom
       function openLightbox(imgSrc) {
@@ -1991,5 +2817,7 @@
         });
       }
     </script>
+    <!-- Official YouTube IFrame Player API for seamless YouTube card embedding -->
+    <script src="https://www.youtube.com/iframe_api"></script>
   </body>
 </html>
