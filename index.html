@@ -604,9 +604,54 @@
         margin-left: auto;
       }
 
+      .portfolio-meta-header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 12px;
+        font-family: var(--font-main);
+        font-size: 11.5px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(0, 0, 0, 0.55);
+        padding-bottom: 24px;
+        margin-bottom: 40px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+        width: 100%;
+      }
+      .portfolio-meta-header .portfolio-meta-role {
+        font-weight: 400;
+        color: rgba(0, 0, 0, 0.55);
+      }
+      .portfolio-meta-header .portfolio-meta-separator {
+        color: rgba(0, 0, 0, 0.25);
+      }
+      .portfolio-meta-header .portfolio-meta-name {
+        font-weight: 700;
+        color: #000000;
+      }
+
       /* BALANCED 3-PROJECTS-PER-ROW GRIDS & EDITORIAL CAROUSEL */
-      .photo-editorial-grid,
-      .motion-showcase-grid {
+      #section-photography,
+      #section-kalulu,
+      #section-caqueret-photo,
+      #section-motion {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+        padding: 40px 0;
+      }
+
+      #section-photography .editorial-carousel-wrapper,
+      #section-kalulu .editorial-carousel-wrapper,
+      #section-caqueret-photo .editorial-carousel-wrapper,
+      #section-motion .editorial-carousel-wrapper {
+        margin-bottom: 0;
+      }
+
+      .photo-editorial-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 52px 32px;
@@ -614,54 +659,56 @@
         width: 100%;
       }
 
-      /* EDITORIAL INFINITE LOOPING CAROUSEL MARQUEE */
+      .motion-showcase-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 52px 36px;
+        margin-bottom: 110px;
+        width: 100%;
+      }
+
+      /* EDITORIAL CAROUSEL (MOUSE SCROLLABLE & DRAGGABLE) */
       .editorial-carousel-wrapper {
         position: relative;
         width: 100%;
         margin-bottom: 110px;
-        overflow: hidden;
-        padding: 6px 0 28px 0;
-        mask-image: linear-gradient(
-          to right,
-          transparent,
-          black 3%,
-          black 97%,
-          transparent
-        );
-        -webkit-mask-image: linear-gradient(
-          to right,
-          transparent,
-          black 3%,
-          black 97%,
-          transparent
-        );
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 8px 4px 16px 4px;
+        cursor: grab;
+        user-select: none;
+        -webkit-user-select: none;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+      }
+
+      .editorial-carousel-wrapper:active,
+      .editorial-carousel-wrapper.is-dragging {
+        cursor: grabbing;
+        scroll-behavior: auto;
+      }
+
+      .editorial-carousel-wrapper::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
       }
 
       .editorial-carousel-track {
         display: flex;
         gap: 28px;
         width: max-content;
-        animation: infiniteMarqueeLoop 30s linear infinite;
         will-change: transform;
-      }
-
-      .editorial-carousel-wrapper:hover .editorial-carousel-track {
-        animation-play-state: paused;
+        padding: 0 4px;
       }
 
       .carousel-marquee-group {
         display: flex;
         gap: 28px;
         flex-shrink: 0;
-      }
-
-      @keyframes infiniteMarqueeLoop {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(calc(-50% - 14px));
-        }
       }
 
       .editorial-carousel-track .showcase-card {
@@ -1025,6 +1072,41 @@
         line-height: 1.45;
       }
 
+      .showcase-youtube-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 6px;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(0, 0, 0, 0.7);
+        text-decoration: none;
+        padding: 4px 10px 4px 8px;
+        border-radius: 14px;
+        background: rgba(0, 0, 0, 0.04);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        width: fit-content;
+        transition:
+          background 0.2s ease,
+          border-color 0.2s ease,
+          color 0.2s ease,
+          transform 0.2s ease;
+      }
+      .showcase-youtube-link:hover {
+        background: rgba(230, 0, 0, 0.08);
+        border-color: rgba(230, 0, 0, 0.3);
+        color: #cc0000;
+        transform: translateY(-1px);
+      }
+      .youtube-inline-icon {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+        flex-shrink: 0;
+      }
+
       .showcase-tags-bar {
         display: flex;
         gap: 7px;
@@ -1293,15 +1375,18 @@
          BOTTOM: Motion / Video Film Showcase
          ========================================================= -->
       <div class="projects-container" id="projects-page">
+        <!-- Global Portfolio Role Header -->
+        <div class="portfolio-meta-header">
+          <span class="portfolio-meta-role">EDITORIAL COORDINATION</span>
+          <span class="portfolio-meta-separator">/</span>
+          <span class="portfolio-meta-name">CLAUDETTE KALULU</span>
+        </div>
+
         <!-- ==================== 1. CASTELLO LUKEBA — GALERIES LAFAYETTE ==================== -->
         <section id="section-photography">
           <div class="project-editorial-header align-left">
             <h2 class="project-editorial-title">CASTELLO LUKEBA — GALERIES LAFAYETTE</h2>
             <div class="project-editorial-credits">
-              <div class="project-credit-line">
-                <span class="project-credit-role">EDITORIAL COORDINATOR</span>
-                <span class="project-credit-name">CLAUDETTE KALULU</span>
-              </div>
               <div class="project-credit-line">
                 <span class="project-credit-role">AGENCY</span>
                 <span class="project-credit-name">STARTERZ</span>
@@ -1416,105 +1501,6 @@
                   </div>
                 </div>
               </div>
-
-              <!-- Group 2: Seamless Infinite Duplicate -->
-              <div class="carousel-marquee-group" aria-hidden="true">
-                <!-- Card 1 Duplicate -->
-                <div
-                  class="showcase-card"
-                  onclick="openLightbox('./media/Castello Lukeba/PHOTO-12.webp')"
-                >
-                  <div class="showcase-media-box">
-                    <img
-                      src="./media/Castello Lukeba/PHOTO-12.webp"
-                      alt="Castello Lukeba — Galeries Lafayette"
-                      decoding="async"
-                      loading="lazy"
-                      style="object-position: center 20%"
-                    />
-                    <div class="photo-zoom-indicator" title="Enlarge image">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <polyline points="9 21 3 21 3 15"></polyline>
-                        <line x1="21" y1="3" x2="14" y2="10"></line>
-                        <line x1="3" y1="21" x2="10" y2="14"></line>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Card 2 Duplicate -->
-                <div
-                  class="showcase-card"
-                  onclick="openLightbox('./media/Castello Lukeba/PHOTO-21.webp')"
-                >
-                  <div class="showcase-media-box">
-                    <img
-                      src="./media/Castello Lukeba/PHOTO-21.webp"
-                      alt="Castello Lukeba — Galeries Lafayette"
-                      decoding="async"
-                      loading="lazy"
-                      style="object-position: center center"
-                    />
-                    <div class="photo-zoom-indicator" title="Enlarge image">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <polyline points="9 21 3 21 3 15"></polyline>
-                        <line x1="21" y1="3" x2="14" y2="10"></line>
-                        <line x1="3" y1="21" x2="10" y2="14"></line>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Card 3 Duplicate -->
-                <div
-                  class="showcase-card"
-                  onclick="openLightbox('./media/Castello Lukeba/PHOTO-45.webp')"
-                >
-                  <div class="showcase-media-box">
-                    <img
-                      src="./media/Castello Lukeba/PHOTO-45.webp"
-                      alt="Castello Lukeba — Galeries Lafayette"
-                      decoding="async"
-                      loading="lazy"
-                      style="object-position: center center"
-                    />
-                    <div class="photo-zoom-indicator" title="Enlarge image">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <polyline points="9 21 3 21 3 15"></polyline>
-                        <line x1="21" y1="3" x2="14" y2="10"></line>
-                        <line x1="3" y1="21" x2="10" y2="14"></line>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Card 4 Duplicate -->
-                <div
-                  class="showcase-card"
-                  onclick="openLightbox('./media/Castello Lukeba/PHOTO-47.webp')"
-                >
-                  <div class="showcase-media-box">
-                    <img
-                      src="./media/Castello Lukeba/PHOTO-47.webp"
-                      alt="Castello Lukeba — Galeries Lafayette"
-                      decoding="async"
-                      loading="lazy"
-                      style="object-position: center 25%"
-                    />
-                    <div class="photo-zoom-indicator" title="Enlarge image">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <polyline points="9 21 3 21 3 15"></polyline>
-                        <line x1="21" y1="3" x2="14" y2="10"></line>
-                        <line x1="3" y1="21" x2="10" y2="14"></line>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -1524,10 +1510,6 @@
           <div class="project-editorial-header align-right">
             <h2 class="project-editorial-title">PIERRE KALULU — TURKS & CAICOS</h2>
             <div class="project-editorial-credits">
-              <div class="project-credit-line">
-                <span class="project-credit-role">EDITORIAL COORDINATOR</span>
-                <span class="project-credit-name">CLAUDETTE KALULU</span>
-              </div>
               <div class="project-credit-line">
                 <span class="project-credit-role">AGENCY</span>
                 <span class="project-credit-name">STARTERZ</span>
@@ -1642,105 +1624,6 @@
                   </div>
                 </div>
               </div>
-
-              <!-- Group 2: Seamless Infinite Duplicate -->
-              <div class="carousel-marquee-group" aria-hidden="true">
-                <!-- Card 1 Duplicate -->
-                <div
-                  class="showcase-card"
-                  onclick="openLightbox('./media/Pierre Kalulu/DSC07467.webp')"
-                >
-                  <div class="showcase-media-box">
-                    <img
-                      src="./media/Pierre Kalulu/DSC07467.webp"
-                      alt="Pierre Kalulu — Turks & Caicos"
-                      decoding="async"
-                      loading="lazy"
-                      style="object-position: center 25%"
-                    />
-                    <div class="photo-zoom-indicator" title="Enlarge image">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <polyline points="9 21 3 21 3 15"></polyline>
-                        <line x1="21" y1="3" x2="14" y2="10"></line>
-                        <line x1="3" y1="21" x2="10" y2="14"></line>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Card 2 Duplicate -->
-                <div
-                  class="showcase-card"
-                  onclick="openLightbox('./media/Pierre Kalulu/DSC07507.webp')"
-                >
-                  <div class="showcase-media-box">
-                    <img
-                      src="./media/Pierre Kalulu/DSC07507.webp"
-                      alt="Pierre Kalulu — Turks & Caicos"
-                      decoding="async"
-                      loading="lazy"
-                      style="object-position: center center"
-                    />
-                    <div class="photo-zoom-indicator" title="Enlarge image">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <polyline points="9 21 3 21 3 15"></polyline>
-                        <line x1="21" y1="3" x2="14" y2="10"></line>
-                        <line x1="3" y1="21" x2="10" y2="14"></line>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Card 3 Duplicate -->
-                <div
-                  class="showcase-card"
-                  onclick="openLightbox('./media/Pierre Kalulu/DSC08174.webp')"
-                >
-                  <div class="showcase-media-box">
-                    <img
-                      src="./media/Pierre Kalulu/DSC08174.webp"
-                      alt="Pierre Kalulu — Turks & Caicos"
-                      decoding="async"
-                      loading="lazy"
-                      style="object-position: center center"
-                    />
-                    <div class="photo-zoom-indicator" title="Enlarge image">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <polyline points="9 21 3 21 3 15"></polyline>
-                        <line x1="21" y1="3" x2="14" y2="10"></line>
-                        <line x1="3" y1="21" x2="10" y2="14"></line>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Card 4 Duplicate -->
-                <div
-                  class="showcase-card"
-                  onclick="openLightbox('./media/Pierre Kalulu/DSC08256.webp')"
-                >
-                  <div class="showcase-media-box">
-                    <img
-                      src="./media/Pierre Kalulu/DSC08256.webp"
-                      alt="Pierre Kalulu — Turks & Caicos"
-                      decoding="async"
-                      loading="lazy"
-                      style="object-position: center 20%"
-                    />
-                    <div class="photo-zoom-indicator" title="Enlarge image">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <polyline points="9 21 3 21 3 15"></polyline>
-                        <line x1="21" y1="3" x2="14" y2="10"></line>
-                        <line x1="3" y1="21" x2="10" y2="14"></line>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -1751,15 +1634,11 @@
             <h2 class="project-editorial-title">MAXENCE CAQUERET — GALERIES LAFAYETTE</h2>
             <div class="project-editorial-credits">
               <div class="project-credit-line">
-                <span class="project-credit-role">EDITORIAL COORDINATOR</span>
-                <span class="project-credit-name">CLAUDETTE KALULU</span>
-              </div>
-              <div class="project-credit-line">
                 <span class="project-credit-role">AGENCY</span>
                 <span class="project-credit-name">STARTERZ</span>
               </div>
               <div class="project-credit-desc">
-                Content production for Galeries Lafayette featuring Maxence Caqueret. A social-first project focused on creating visual content tailored for digital platforms and social media.
+                Content creation for Galeries Lafayette featuring Maxence Caqueret. A digital-first project designed to produce engaging visual content for social media and online platforms.
               </div>
             </div>
           </div>
@@ -1868,261 +1747,246 @@
                   </div>
                 </div>
               </div>
-
-              <!-- Group 2: Seamless Infinite Duplicate -->
-              <div class="carousel-marquee-group" aria-hidden="true">
-                <!-- Card 1 Duplicate -->
-                <div
-                  class="showcase-card"
-                  onclick="openLightbox('./media/Maxence Caqueret/GL X MAXENCE CAQUERET4.webp')"
-                >
-                  <div class="showcase-media-box">
-                    <img
-                      src="./media/Maxence Caqueret/GL X MAXENCE CAQUERET4.webp"
-                      alt="Maxence Caqueret — Galeries Lafayette"
-                      decoding="async"
-                      loading="lazy"
-                      style="object-position: center center"
-                    />
-                    <div class="photo-zoom-indicator" title="Enlarge image">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <polyline points="9 21 3 21 3 15"></polyline>
-                        <line x1="21" y1="3" x2="14" y2="10"></line>
-                        <line x1="3" y1="21" x2="10" y2="14"></line>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Card 2 Duplicate -->
-                <div
-                  class="showcase-card"
-                  onclick="openLightbox('./media/Maxence Caqueret/GL X MAXENCE CAQUERET6.webp')"
-                >
-                  <div class="showcase-media-box">
-                    <img
-                      src="./media/Maxence Caqueret/GL X MAXENCE CAQUERET6.webp"
-                      alt="Maxence Caqueret — Galeries Lafayette"
-                      decoding="async"
-                      loading="lazy"
-                      style="object-position: center 20%"
-                    />
-                    <div class="photo-zoom-indicator" title="Enlarge image">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <polyline points="9 21 3 21 3 15"></polyline>
-                        <line x1="21" y1="3" x2="14" y2="10"></line>
-                        <line x1="3" y1="21" x2="10" y2="14"></line>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Card 3 Duplicate -->
-                <div
-                  class="showcase-card"
-                  onclick="openLightbox('./media/Maxence Caqueret/GL X MAXENCE CAQUERET11.webp')"
-                >
-                  <div class="showcase-media-box">
-                    <img
-                      src="./media/Maxence Caqueret/GL X MAXENCE CAQUERET11.webp"
-                      alt="Maxence Caqueret — Galeries Lafayette"
-                      decoding="async"
-                      loading="lazy"
-                      style="object-position: center center"
-                    />
-                    <div class="photo-zoom-indicator" title="Enlarge image">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <polyline points="9 21 3 21 3 15"></polyline>
-                        <line x1="21" y1="3" x2="14" y2="10"></line>
-                        <line x1="3" y1="21" x2="10" y2="14"></line>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Card 4 Duplicate -->
-                <div
-                  class="showcase-card"
-                  onclick="openLightbox('./media/Maxence Caqueret/GL X MAXENCE CAQUERET17.webp')"
-                >
-                  <div class="showcase-media-box">
-                    <img
-                      src="./media/Maxence Caqueret/GL X MAXENCE CAQUERET17.webp"
-                      alt="Maxence Caqueret — Galeries Lafayette"
-                      decoding="async"
-                      loading="lazy"
-                      style="object-position: center 25%"
-                    />
-                    <div class="photo-zoom-indicator" title="Enlarge image">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <polyline points="9 21 3 21 3 15"></polyline>
-                        <line x1="21" y1="3" x2="14" y2="10"></line>
-                        <line x1="3" y1="21" x2="10" y2="14"></line>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>
 
         <!-- ==================== 4. VIDEO & MOTION FILMS ==================== -->
         <section id="section-motion">
-          <div class="motion-showcase-grid">
-            <!-- Video 1: Maxence Caqueret -->
-            <div class="showcase-card" id="item-caqueret">
-              <div
-                class="hover-video-container"
-                onmouseenter="playHoverVideo('vid-caqueret')"
-                onmouseleave="pauseHoverVideo('vid-caqueret')"
-                onclick="toggleVideoPlay('vid-caqueret')"
-              >
-                <img
-                  src="./media/Maxence Caqueret/GL X MAXENCE CAQUERET11.webp"
-                  class="video-cover-img"
-                  alt="Maxence Caqueret — Galeries Lafayette"
-                  style="object-position: center center"
-                />
-                <video id="vid-caqueret" playsinline loop preload="auto">
-                  <source src="./media/maxence_caqueret.mp4" type="video/mp4" />
-                </video>
-                <div class="play-badge-indicator">
-                  <svg viewBox="0 0 24 24">
-                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                  </svg>
-                  <span>Hover to play</span>
-                </div>
-                <button
-                  class="sound-toggle-btn"
-                  onclick="toggleVideoMute(event, 'vid-caqueret')"
-                  title="Toggle audio"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <polygon
-                      points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"
-                    ></polygon>
-                    <path
-                      d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"
-                    ></path>
-                  </svg>
-                </button>
+          <div class="project-editorial-header align-left">
+            <h2 class="project-editorial-title">VIDEO & MOTION FILMS</h2>
+            <div class="project-editorial-credits">
+              <div class="project-credit-line">
+                <span class="project-credit-role">AGENCY</span>
+                <span class="project-credit-name">STARTERZ</span>
               </div>
-              <div class="showcase-info">
-                <h3 class="showcase-title">Maxence Caqueret — Galeries Lafayette</h3>
-                <p class="showcase-desc">Promotional content for the brand’s social media channels.</p>
+              <div class="project-credit-desc">
+                Creative direction, video production, and social-first digital storytelling.
               </div>
             </div>
+          </div>
 
-            <!-- Video 2: Starterz -->
-            <div class="showcase-card" id="item-starterz">
-              <div
-                class="hover-video-container"
-                onmouseenter="playHoverVideo('vid-starterz')"
-                onmouseleave="pauseHoverVideo('vid-starterz')"
-                onclick="toggleVideoPlay('vid-starterz')"
-              >
-                <img
-                  src="./media/starterz_cover.webp"
-                  class="video-cover-img"
-                  alt="Starterz — Agency Introduction Video"
-                  style="object-position: center center"
-                />
-                <video
-                  id="vid-starterz"
-                  playsinline
-                  loop
-                  preload="auto"
-                >
-                  <source src="./media/starterz_reel.mp4" type="video/mp4" />
-                </video>
-                <div class="play-badge-indicator">
-                  <svg viewBox="0 0 24 24">
-                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                  </svg>
-                  <span>Hover to play</span>
-                </div>
-                <button
-                  class="sound-toggle-btn"
-                  onclick="toggleVideoMute(event, 'vid-starterz')"
-                  title="Toggle audio"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
+          <div class="editorial-carousel-wrapper">
+            <div class="editorial-carousel-track" id="carousel-motion">
+              <div class="carousel-marquee-group">
+                <!-- Video 1: Maxence Caqueret -->
+                <div class="showcase-card" id="item-caqueret">
+                  <div
+                    class="hover-video-container"
+                    onmouseenter="playHoverVideo('vid-caqueret')"
+                    onmouseleave="pauseHoverVideo('vid-caqueret')"
+                    onclick="toggleVideoPlay('vid-caqueret')"
                   >
-                    <polygon
-                      points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"
-                    ></polygon>
-                    <path
-                      d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"
-                    ></path>
-                  </svg>
-                </button>
-              </div>
-              <div class="showcase-info">
-                <h3 class="showcase-title">Starterz — Agency Introduction Video</h3>
-                <p class="showcase-desc">A presentation of Starterz’s universe, identity, and creative expertise.</p>
-              </div>
-            </div>
+                    <img
+                      src="./media/Maxence Caqueret/GL X MAXENCE CAQUERET11.webp"
+                      class="video-cover-img"
+                      alt="Maxence Caqueret — Galeries Lafayette"
+                      style="object-position: center center"
+                    />
+                    <video id="vid-caqueret" playsinline loop preload="auto">
+                      <source src="./media/maxence_caqueret.mp4" type="video/mp4" />
+                    </video>
+                    <div class="play-badge-indicator">
+                      <svg viewBox="0 0 24 24">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                      <span>Hover to play</span>
+                    </div>
+                    <button
+                      class="sound-toggle-btn"
+                      onclick="toggleVideoMute(event, 'vid-caqueret')"
+                      title="Toggle audio"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <polygon
+                          points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"
+                        ></polygon>
+                        <path
+                          d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"
+                        ></path>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="showcase-info">
+                    <h3 class="showcase-title">Maxence Caqueret — Galeries Lafayette</h3>
+                    <p class="showcase-desc">Content creation for Galeries Lafayette featuring Maxence Caqueret. A digital-first project designed to produce engaging visual content for social media and online platforms.</p>
+                  </div>
+                </div>
 
-            <!-- Video 3: Malo Gusto -->
-            <div class="showcase-card" id="item-malo-gusto">
-              <div
-                class="hover-video-container"
-                onmouseenter="playHoverVideo('vid-malo')"
-                onmouseleave="pauseHoverVideo('vid-malo')"
-                onclick="toggleVideoPlay('vid-malo')"
-              >
-                <img
-                  src="./media/malo_gusto_cover.webp"
-                  class="video-cover-img"
-                  alt="Malo Gusto — Martinique"
-                  style="object-position: center 25%"
-                />
-                <video id="vid-malo" playsinline loop preload="auto">
-                  <source src="./media/malo_gusto.mp4" type="video/mp4" />
-                </video>
-                <div class="play-badge-indicator">
-                  <svg viewBox="0 0 24 24">
-                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                  </svg>
-                  <span>Hover to play</span>
-                </div>
-                <button
-                  class="sound-toggle-btn"
-                  onclick="toggleVideoMute(event, 'vid-malo')"
-                  title="Toggle audio"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
+                <!-- Video 2: Starterz -->
+                <div class="showcase-card" id="item-starterz">
+                  <div
+                    class="hover-video-container"
+                    onmouseenter="playHoverVideo('vid-starterz')"
+                    onmouseleave="pauseHoverVideo('vid-starterz')"
+                    onclick="toggleVideoPlay('vid-starterz')"
                   >
-                    <polygon
-                      points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"
-                    ></polygon>
-                    <path
-                      d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"
-                    ></path>
-                  </svg>
-                </button>
-              </div>
-              <div class="showcase-info">
-                <h3 class="showcase-title">Malo Gusto — Martinique</h3>
-                <p class="showcase-desc">A YouTube project designed to showcase Martinique from a different perspective through a more personal and immersive approach.</p>
+                    <img
+                      src="./media/starterz_cover.webp"
+                      class="video-cover-img"
+                      alt="Starterz — Agency Introduction Video"
+                      style="object-position: center center"
+                    />
+                    <video
+                      id="vid-starterz"
+                      playsinline
+                      loop
+                      preload="auto"
+                    >
+                      <source src="./media/starterz_reel.mp4" type="video/mp4" />
+                    </video>
+                    <div class="play-badge-indicator">
+                      <svg viewBox="0 0 24 24">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                      <span>Hover to play</span>
+                    </div>
+                    <button
+                      class="sound-toggle-btn"
+                      onclick="toggleVideoMute(event, 'vid-starterz')"
+                      title="Toggle audio"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <polygon
+                          points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"
+                        ></polygon>
+                        <path
+                          d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"
+                        ></path>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="showcase-info">
+                    <h3 class="showcase-title">Starterz — Agency Introduction Video</h3>
+                    <p class="showcase-desc">A presentation of Starterz’s universe, identity, and creative expertise.</p>
+                  </div>
+                </div>
+
+                <!-- Video 3: Malo Gusto -->
+                <div class="showcase-card" id="item-malo-gusto">
+                  <div
+                    class="hover-video-container"
+                    onmouseenter="playHoverVideo('vid-malo')"
+                    onmouseleave="pauseHoverVideo('vid-malo')"
+                    onclick="window.open('https://youtu.be/sXjjTeIAIeg?si=_lGd1OxXgehrGZmW', '_blank', 'noopener,noreferrer')"
+                    title="Watch Malo Gusto on YouTube"
+                  >
+                    <img
+                      src="./media/malo_gusto_cover.webp"
+                      class="video-cover-img"
+                      alt="Malo Gusto — Martinique"
+                      style="object-position: center 25%"
+                    />
+                    <video id="vid-malo" playsinline loop preload="auto">
+                      <source src="./media/malo_gusto.mp4" type="video/mp4" />
+                    </video>
+                    <div class="play-badge-indicator">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="currentColor"/>
+                      </svg>
+                      <span>Watch on YouTube ↗</span>
+                    </div>
+                    <button
+                      class="sound-toggle-btn"
+                      onclick="toggleVideoMute(event, 'vid-malo')"
+                      title="Toggle audio"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <polygon
+                          points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"
+                        ></polygon>
+                        <path
+                          d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"
+                        ></path>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="showcase-info">
+                    <h3 class="showcase-title">Malo Gusto — Martinique</h3>
+                    <p class="showcase-desc">A YouTube project designed to showcase Martinique from a different perspective through a more personal and immersive approach.</p>
+                    <a
+                      href="https://youtu.be/sXjjTeIAIeg?si=_lGd1OxXgehrGZmW"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="showcase-youtube-link"
+                      onclick="event.stopPropagation()"
+                    >
+                      <svg class="youtube-inline-icon" viewBox="0 0 24 24">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                      </svg>
+                      <span>Watch on YouTube ↗</span>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Video 4: Johan Manzambi × Aston Villa -->
+                <div class="showcase-card" id="item-manzambi">
+                  <div
+                    class="hover-video-container"
+                    onmouseenter="playHoverVideo('vid-manzambi')"
+                    onmouseleave="pauseHoverVideo('vid-manzambi')"
+                    onclick="toggleVideoPlay('vid-manzambi')"
+                  >
+                    <img
+                      src="./media/johan_manzambi_cover.webp"
+                      class="video-cover-img"
+                      alt="Johan Manzambi × Aston Villa"
+                      style="object-position: center center"
+                    />
+                    <video
+                      id="vid-manzambi"
+                      playsinline
+                      loop
+                      preload="auto"
+                    >
+                      <source src="./media/johan_manzambi.mp4" type="video/mp4" />
+                    </video>
+                    <div class="play-badge-indicator">
+                      <svg viewBox="0 0 24 24">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                      <span>Hover to play</span>
+                    </div>
+                    <button
+                      class="sound-toggle-btn"
+                      onclick="toggleVideoMute(event, 'vid-manzambi')"
+                      title="Toggle audio"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <polygon
+                          points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"
+                        ></polygon>
+                        <path
+                          d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"
+                        ></path>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="showcase-info">
+                    <h3 class="showcase-title">Johan Manzambi × Aston Villa</h3>
+                    <p class="showcase-desc">Content production for Johan Manzambi’s transfer to Aston Villa. A social-first project capturing the key moments of his arrival, from behind-the-scenes footage to signature moments, with content designed specifically for the player’s social media platforms.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -2222,10 +2086,9 @@
       const sections = [
         "desktop-home",
         "section-photography",
-        "item-lukeba",
-        "item-sport-accent",
+        "section-kalulu",
+        "section-caqueret-photo",
         "section-motion",
-        "item-caqueret",
       ];
 
       let isNavigatingToProjects = false;
@@ -2260,11 +2123,142 @@
       function scrollCarousel(trackId, direction) {
         const track = document.getElementById(trackId);
         if (!track) return;
+        const wrapper = track.closest(".editorial-carousel-wrapper") || track;
         const slide = track.querySelector(".showcase-card");
-        const scrollAmount = slide ? (slide.offsetWidth + 28) * 2 : 560;
-        track.scrollBy({
+        const scrollAmount = slide ? (slide.offsetWidth + 28) * 1.5 : 560;
+        wrapper.scrollBy({
           left: direction * scrollAmount,
           behavior: "smooth",
+        });
+      }
+
+      // Initialize Mouse-controlled photo carousel scrolling & drag interactions (100% full width)
+      function initPhotoCarousels() {
+        const photoSections = Array.from(
+          document.querySelectorAll("section")
+        ).filter((sec) => sec.querySelector(".editorial-carousel-wrapper"));
+
+        // 1. Global 100% width window wheel listener for sticky centered section scroll
+        window.addEventListener(
+          "wheel",
+          (e) => {
+            if (document.body.classList.contains("home-locked")) return;
+            if (Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
+
+            const mouseY = e.clientY;
+            const viewportCenter = window.innerHeight / 2;
+
+            for (const section of photoSections) {
+              const rect = section.getBoundingClientRect();
+
+              // Check if mouse is at the vertical height/band of this section or section is in center view
+              if (
+                (mouseY >= rect.top && mouseY <= rect.bottom) ||
+                (rect.top <= viewportCenter && rect.bottom >= viewportCenter)
+              ) {
+                const wrapper = section.querySelector(".editorial-carousel-wrapper");
+                if (!wrapper) continue;
+
+                const maxScrollLeft = wrapper.scrollWidth - wrapper.clientWidth;
+                if (maxScrollLeft <= 0) continue;
+
+                const atLeftEnd = wrapper.scrollLeft <= 1;
+                const atRightEnd = wrapper.scrollLeft >= maxScrollLeft - 1;
+
+                // Scrolling down and horizontal scroll remaining -> lock & center in screen while moving
+                if (e.deltaY > 0 && !atRightEnd) {
+                  e.preventDefault();
+
+                  // Align in the vertical middle of the screen
+                  const idealScrollY =
+                    window.scrollY + rect.top - (window.innerHeight - rect.height) / 2;
+                  if (Math.abs(window.scrollY - idealScrollY) > 8) {
+                    window.scrollTo({
+                      top: Math.max(0, idealScrollY),
+                      behavior: "smooth",
+                    });
+                  }
+
+                  wrapper.scrollLeft += e.deltaY * 1.15;
+                  return;
+                }
+                // Scrolling up and horizontal scroll remaining -> lock & center in screen while moving
+                else if (e.deltaY < 0 && !atLeftEnd) {
+                  e.preventDefault();
+
+                  const idealScrollY =
+                    window.scrollY + rect.top - (window.innerHeight - rect.height) / 2;
+                  if (Math.abs(window.scrollY - idealScrollY) > 8) {
+                    window.scrollTo({
+                      top: Math.max(0, idealScrollY),
+                      behavior: "smooth",
+                    });
+                  }
+
+                  wrapper.scrollLeft += e.deltaY * 1.15;
+                  return;
+                }
+              }
+            }
+          },
+          { passive: false }
+        );
+
+        // 2. Click-and-Drag / Grab interactions for each carousel
+        photoSections.forEach((section) => {
+          const wrapper = section.querySelector(".editorial-carousel-wrapper");
+          if (!wrapper) return;
+
+          let isDown = false;
+          let startX = 0;
+          let scrollLeftStart = 0;
+          let isDragging = false;
+
+          // Click-and-Drag / Grab to scroll
+          wrapper.addEventListener("mousedown", (e) => {
+            if (e.button !== 0) return;
+            isDown = true;
+            isDragging = false;
+            startX = e.pageX - wrapper.offsetLeft;
+            scrollLeftStart = wrapper.scrollLeft;
+          });
+
+          window.addEventListener("mousemove", (e) => {
+            if (!isDown) return;
+            const x = e.pageX - wrapper.offsetLeft;
+            const walk = (x - startX) * 1.35;
+            if (Math.abs(x - startX) > 6) {
+              if (!isDragging) {
+                isDragging = true;
+                wrapper.classList.add("is-dragging");
+              }
+              wrapper.scrollLeft = scrollLeftStart - walk;
+            }
+          });
+
+          window.addEventListener("mouseup", () => {
+            if (isDown) {
+              isDown = false;
+              wrapper.classList.remove("is-dragging");
+              setTimeout(() => {
+                isDragging = false;
+              }, 50);
+            }
+          });
+
+          // Prevent opening lightbox if user was dragging
+          wrapper.querySelectorAll(".showcase-card").forEach((card) => {
+            card.addEventListener(
+              "click",
+              (e) => {
+                if (isDragging) {
+                  e.stopImmediatePropagation();
+                  e.preventDefault();
+                }
+              },
+              true
+            );
+          });
         });
       }
 
@@ -2318,6 +2312,7 @@
       window.addEventListener("DOMContentLoaded", () => {
         initHomeLock();
         initYouTubeVideoCards();
+        initPhotoCarousels();
       });
 
       // Re-lock when scrolled back to the very top (first 100vh page)
