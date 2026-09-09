@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="home-locked">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -156,11 +156,24 @@
       }
 
       /* Home 100vh unscrollable desktop & mobile lock */
+      html.home-locked,
       body.home-locked {
         overflow: hidden !important;
-        touch-action: none;
+        touch-action: none !important;
+        height: 100% !important;
         height: 100vh !important;
         height: 100dvh !important;
+        max-height: 100dvh !important;
+        overscroll-behavior: none !important;
+        -webkit-overflow-scrolling: auto !important;
+      }
+
+      body.home-locked section.desktop-viewport {
+        touch-action: none !important;
+        overflow: hidden !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        max-height: 100dvh !important;
       }
 
       body.home-locked .overlay-backdrop {
@@ -334,6 +347,9 @@
         cursor: pointer;
         text-decoration: none;
         transition: transform 0.2s ease, opacity 0.2s ease;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
       }
       .desktop-icon-item:active {
         transform: scale(0.96);
@@ -2334,26 +2350,36 @@
         if (!document.body.classList.contains("home-locked")) {
           document.body.classList.add("home-locked");
         }
+        if (!document.documentElement.classList.contains("home-locked")) {
+          document.documentElement.classList.add("home-locked");
+        }
         window.scrollTo(0, 0);
       }
 
       function unlockHome() {
         document.body.classList.remove("home-locked");
+        document.documentElement.classList.remove("home-locked");
         document.body.style.overflow = "";
+        document.documentElement.style.overflow = "";
       }
 
       function goToProjects(e) {
-        if (e) e.preventDefault();
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
         if (isNavigatingToProjects) return;
         isNavigatingToProjects = true;
         unlockHome();
-        const targetEl = document.getElementById("projects-page");
-        if (targetEl) {
-          targetEl.scrollIntoView({ behavior: "smooth" });
-        }
-        setTimeout(() => {
-          isNavigatingToProjects = false;
-        }, 800);
+        requestAnimationFrame(() => {
+          const targetEl = document.getElementById("projects-page");
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: "smooth" });
+          }
+          setTimeout(() => {
+            isNavigatingToProjects = false;
+          }, 850);
+        });
       }
 
       // Horizontal carousel scroll handler
@@ -2582,7 +2608,11 @@
         (e) => {
           if (document.body.classList.contains("home-locked")) {
             const aboutOverlay = document.getElementById("about-overlay");
-            if (aboutOverlay && aboutOverlay.classList.contains("active")) {
+            if (
+              aboutOverlay &&
+              aboutOverlay.classList.contains("active") &&
+              e.target.closest(".rtf-window-body")
+            ) {
               return; // Allow modal internal scrolling only
             }
             e.preventDefault();
