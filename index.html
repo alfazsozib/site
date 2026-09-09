@@ -1339,8 +1339,13 @@
         #section-kalulu,
         #section-caqueret-photo,
         #section-motion {
-          min-height: auto;
-          padding: 24px 0 40px;
+          min-height: 85vh;
+          min-height: 85dvh;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 24px 0 36px;
+          box-sizing: border-box;
         }
 
         .projects-container {
@@ -2449,15 +2454,6 @@
                 else if (e.deltaY < 0 && !atLeftEnd) {
                   e.preventDefault();
 
-                  const idealScrollY =
-                    window.scrollY + rect.top - (window.innerHeight - rect.height) / 2;
-                  if (Math.abs(window.scrollY - idealScrollY) > 8) {
-                    window.scrollTo({
-                      top: Math.max(0, idealScrollY),
-                      behavior: "smooth",
-                    });
-                  }
-
                   wrapper.scrollLeft += e.deltaY * 1.15;
                   return;
                 }
@@ -2467,7 +2463,118 @@
           { passive: false }
         );
 
-        // 2. Click-and-Drag / Grab interactions for each carousel
+        // 2. Global touch listener for sticky centered section scroll on Mobile & Touch devices
+        let touchStartY = 0;
+        let touchStartX = 0;
+        let touchPrevY = 0;
+        let isTouchingSection = false;
+
+        window.addEventListener(
+          "touchstart",
+          (e) => {
+            if (document.body.classList.contains("home-locked")) return;
+            if (e.touches.length !== 1) return;
+
+            touchStartY = e.touches[0].clientY;
+            touchStartX = e.touches[0].clientX;
+            touchPrevY = touchStartY;
+            isTouchingSection = false;
+          },
+          { passive: true }
+        );
+
+        window.addEventListener(
+          "touchmove",
+          (e) => {
+            if (document.body.classList.contains("home-locked")) return;
+            if (e.touches.length !== 1) return;
+
+            const aboutOverlay = document.getElementById("about-overlay");
+            if (aboutOverlay && aboutOverlay.classList.contains("active")) return;
+            const lightboxModal = document.getElementById("lightbox-modal");
+            if (lightboxModal && lightboxModal.classList.contains("active")) return;
+
+            const currentY = e.touches[0].clientY;
+            const currentX = e.touches[0].clientX;
+            const deltaY = touchPrevY - currentY; // > 0 swiping up (scrolling down), < 0 swiping down (scrolling up)
+            const totalDeltaY = touchStartY - currentY;
+            const totalDeltaX = touchStartX - currentX;
+            touchPrevY = currentY;
+
+            // If mostly horizontal swipe and not already locked to sticky scroll, allow native horizontal carousel swipe
+            if (Math.abs(totalDeltaX) > Math.abs(totalDeltaY) * 1.3 && !isTouchingSection) {
+              return;
+            }
+
+            const viewportCenter = window.innerHeight / 2;
+
+            for (const section of photoSections) {
+              const rect = section.getBoundingClientRect();
+
+              // Check if touch is within section or section is centered in viewport
+              const isOverSection = currentY >= rect.top && currentY <= rect.bottom;
+              const isSectionCentered =
+                rect.top <= viewportCenter + 90 && rect.bottom >= viewportCenter - 90;
+
+              if (isOverSection || isSectionCentered) {
+                const wrapper = section.querySelector(".editorial-carousel-wrapper");
+                if (!wrapper) continue;
+
+                const maxScrollLeft = wrapper.scrollWidth - wrapper.clientWidth;
+                if (maxScrollLeft <= 0) continue;
+
+                const atLeftEnd = wrapper.scrollLeft <= 2;
+                const atRightEnd = wrapper.scrollLeft >= maxScrollLeft - 2;
+
+                // Swiping up (deltaY > 0) to scroll down, carousel still has items left to reveal
+                if (deltaY > 0 && !atRightEnd) {
+                  if (e.cancelable) e.preventDefault();
+                  isTouchingSection = true;
+
+                  const idealScrollY =
+                    window.scrollY + rect.top - (window.innerHeight - rect.height) / 2;
+                  if (Math.abs(window.scrollY - idealScrollY) > 8) {
+                    window.scrollTo({
+                      top: Math.max(0, idealScrollY),
+                      behavior: "smooth",
+                    });
+                  }
+
+                  wrapper.scrollLeft += deltaY * 1.35;
+                  return;
+                }
+                // Swiping down (deltaY < 0) to scroll up, carousel still has items behind
+                else if (deltaY < 0 && !atLeftEnd) {
+                  if (e.cancelable) e.preventDefault();
+                  isTouchingSection = true;
+
+                  const idealScrollY =
+                    window.scrollY + rect.top - (window.innerHeight - rect.height) / 2;
+                  if (Math.abs(window.scrollY - idealScrollY) > 8) {
+                    window.scrollTo({
+                      top: Math.max(0, idealScrollY),
+                      behavior: "smooth",
+                    });
+                  }
+
+                  wrapper.scrollLeft += deltaY * 1.35;
+                  return;
+                }
+              }
+            }
+          },
+          { passive: false }
+        );
+
+        window.addEventListener(
+          "touchend",
+          () => {
+            isTouchingSection = false;
+          },
+          { passive: true }
+        );
+
+        // 3. Click-and-Drag / Grab interactions for each carousel
         photoSections.forEach((section) => {
           const wrapper = section.querySelector(".editorial-carousel-wrapper");
           if (!wrapper) return;
