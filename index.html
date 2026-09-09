@@ -155,9 +155,19 @@
           transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
-      /* Home 100vh unscrollable desktop lock */
+      /* Home 100vh unscrollable desktop & mobile lock */
       body.home-locked {
         overflow: hidden !important;
+        touch-action: none;
+        height: 100vh !important;
+        height: 100dvh !important;
+      }
+
+      body.home-locked .overlay-backdrop {
+        touch-action: auto;
+      }
+      body.home-locked .rtf-window-body {
+        touch-action: pan-y;
       }
 
       body.home-locked .page-nav-controls {
@@ -1287,10 +1297,11 @@
 
         /* 2. Desktop Home Screen */
         section.desktop-viewport {
-          min-height: 100vh;
-          min-height: 100dvh;
-          height: auto;
-          padding: 80px 20px 40px;
+          height: 100vh;
+          height: 100dvh;
+          min-height: 0;
+          padding: 0 20px;
+          overflow: hidden;
         }
         .desktop-icons-dock {
           gap: 2.25rem;
@@ -2555,20 +2566,6 @@
         { passive: true }
       );
 
-      let touchStartY = 0;
-      let touchStartX = 0;
-
-      window.addEventListener(
-        "touchstart",
-        (e) => {
-          if (e.touches && e.touches.length > 0) {
-            touchStartY = e.touches[0].clientY;
-            touchStartX = e.touches[0].clientX;
-          }
-        },
-        { passive: true }
-      );
-
       // Prevent wheel / touch / keyboard scrolling while locked on the home screen
       window.addEventListener(
         "wheel",
@@ -2586,19 +2583,7 @@
           if (document.body.classList.contains("home-locked")) {
             const aboutOverlay = document.getElementById("about-overlay");
             if (aboutOverlay && aboutOverlay.classList.contains("active")) {
-              return; // Allow modal internal scrolling
-            }
-            if (e.touches && e.touches.length > 0) {
-              const currentY = e.touches[0].clientY;
-              const currentX = e.touches[0].clientX;
-              const diffY = touchStartY - currentY;
-              const diffX = touchStartX - currentX;
-
-              // If swiping up (user intends to scroll down into projects)
-              if (diffY > 30 && Math.abs(diffY) > Math.abs(diffX)) {
-                goToProjects();
-                return;
-              }
+              return; // Allow modal internal scrolling only
             }
             e.preventDefault();
           }
