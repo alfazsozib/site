@@ -719,6 +719,14 @@
         cursor: pointer;
         transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       }
+      .editorial-carousel-track .showcase-card.video-16-9 {
+        flex: 0 0 760px;
+        width: 760px;
+      }
+      #carousel-motion #item-caqueret {
+        flex: 0 0 400px;
+        width: 400px;
+      }
       .editorial-carousel-track .showcase-card:hover {
         transform: translateY(-8px);
       }
@@ -861,26 +869,36 @@
         stroke-width: 2;
       }
 
-      /* MOTION & VIDEO CONTAINER (UNIFIED 4:5 RATIO) */
+      /* MOTION & VIDEO CONTAINER (PREMIUM WIDESCREEN & EDITORIAL RATIO) */
       .hover-video-container {
         position: relative;
         width: 100%;
         aspect-ratio: 4 / 5;
-        border-radius: 6px;
+        border-radius: 8px;
         overflow: hidden;
-        background: #f2f2f2;
+        background: #000000;
         cursor: pointer;
         border: 1px solid rgba(0, 0, 0, 0.08);
-        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        box-shadow:
+          0 14px 38px rgba(0, 0, 0, 0.09),
+          0 2px 8px rgba(0, 0, 0, 0.04);
         transition:
           border-color 0.35s ease,
-          box-shadow 0.35s ease;
+          box-shadow 0.35s ease,
+          transform 0.35s ease;
+      }
+      .hover-video-container.ratio-16-9,
+      .showcase-card.video-16-9 .hover-video-container {
+        aspect-ratio: 16 / 9;
+      }
+      #item-caqueret .hover-video-container {
+        aspect-ratio: 9 / 14;
       }
       .showcase-card:hover .hover-video-container {
-        border-color: rgba(0, 0, 0, 0.28);
+        border-color: rgba(0, 0, 0, 0.22);
         box-shadow:
-          0 20px 48px rgba(0, 0, 0, 0.15),
-          0 0 20px rgba(0, 0, 0, 0.04);
+          0 24px 56px rgba(0, 0, 0, 0.16),
+          0 6px 18px rgba(0, 0, 0, 0.06);
       }
 
       .hover-video-container video,
@@ -904,6 +922,18 @@
         pointer-events: none;
       }
 
+      .hover-video-container.ratio-16-9 iframe,
+      .showcase-card.video-16-9 .hover-video-container iframe,
+      .hover-video-container.ratio-16-9 .yt-video-frame,
+      .showcase-card.video-16-9 .hover-video-container .yt-video-frame {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: none;
+      }
+
       .hover-video-container .video-cover-img {
         position: absolute;
         inset: 0;
@@ -918,7 +948,7 @@
         will-change: transform;
       }
       .showcase-card:hover .hover-video-container .video-cover-img {
-        transform: scale(1.08);
+        transform: scale(1.06);
       }
       .hover-video-container.is-active .video-cover-img {
         opacity: 0;
@@ -926,33 +956,35 @@
 
       .play-badge-indicator {
         position: absolute;
-        bottom: 16px;
-        left: 16px;
+        bottom: 18px;
+        left: 18px;
         display: flex;
         align-items: center;
         gap: 8px;
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        padding: 6px 14px;
-        border-radius: 20px;
-        border: 1px solid rgba(0, 0, 0, 0.12);
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 7px 16px;
+        border-radius: 24px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
         color: #000000;
-        font-size: 11px;
-        letter-spacing: 0.08em;
+        font-size: 11.5px;
+        letter-spacing: 0.06em;
         text-transform: uppercase;
         font-weight: 500;
         z-index: 3;
         pointer-events: none;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
         transition:
           opacity 0.25s ease,
           transform 0.25s ease,
-          background 0.25s ease;
+          background 0.25s ease,
+          box-shadow 0.25s ease;
       }
       .hover-video-container:hover .play-badge-indicator {
-        transform: scale(1.04);
+        transform: scale(1.05);
         background: #ffffff;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
       }
       .hover-video-container.is-active .play-badge-indicator {
         opacity: 0;
@@ -965,15 +997,15 @@
 
       .sound-toggle-btn {
         position: absolute;
-        bottom: 16px;
-        right: 16px;
-        width: 34px;
-        height: 34px;
+        bottom: 18px;
+        right: 18px;
+        width: 36px;
+        height: 36px;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        border: 1px solid rgba(0, 0, 0, 0.12);
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 0, 0, 0.1);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -981,7 +1013,7 @@
         z-index: 4;
         cursor: pointer;
         opacity: 0;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
         transition:
           opacity 0.2s ease,
           transform 0.2s ease,
@@ -991,15 +1023,16 @@
         opacity: 1;
       }
       .sound-toggle-btn:hover {
-        transform: scale(1.1);
+        transform: scale(1.12);
         background: #ffffff;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
       }
       .sound-toggle-btn.is-muted {
         color: rgba(0, 0, 0, 0.4);
       }
       .sound-toggle-btn svg {
-        width: 14px;
-        height: 14px;
+        width: 15px;
+        height: 15px;
       }
 
       /* CARD TYPOGRAPHY & DESIGNER METADATA */
@@ -1183,30 +1216,42 @@
         color: #ffffff;
       }
 
-      /* Responsive adjustments */
-      @media (max-width: 1100px) {
+      /* =========================================================
+       8. RESPONSIVE DESIGN SYSTEM (DESKTOP, TABLET & MOBILE)
+       ========================================================= */
+
+      /* Tablet & Small Desktop (<= 1024px) */
+      @media (max-width: 1024px) {
+        .projects-container {
+          padding: 60px 32px 120px;
+        }
         .photo-editorial-grid,
         .motion-showcase-grid {
           grid-template-columns: repeat(2, 1fr);
-          gap: 40px 24px;
-          margin-bottom: 80px;
+          gap: 36px 24px;
+          margin-bottom: 70px;
         }
         .editorial-carousel-wrapper {
-          margin-bottom: 80px;
+          margin-bottom: 70px;
         }
         .editorial-carousel-track .showcase-card {
           flex: 0 0 calc(45% - 14px);
-          min-width: 240px;
+          min-width: 260px;
         }
-        .projects-container {
-          padding: 70px 32px 130px;
+        .editorial-carousel-track .showcase-card.video-16-9 {
+          flex: 0 0 calc(70% - 14px);
+          min-width: 420px;
+        }
+        #carousel-motion #item-caqueret {
+          flex: 0 0 calc(46% - 14px);
+          min-width: 280px;
         }
         .desktop-icons-dock {
           gap: 4rem;
         }
         .desktop-icon-thumb {
-          width: 160px;
-          height: 160px;
+          width: 155px;
+          height: 155px;
         }
         header.site-header {
           padding: 28px 32px;
@@ -1218,57 +1263,244 @@
         .rtf-window-body {
           grid-template-columns: 1fr;
           gap: 22px;
-          max-height: 72vh;
+          max-height: 70vh;
+          max-height: 70dvh;
           overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
         }
       }
 
-      @media (max-width: 680px) {
-        .photo-editorial-grid,
-        .motion-showcase-grid {
-          grid-template-columns: 1fr;
-          gap: 36px;
-          margin-bottom: 60px;
+      /* Standard Mobile & Phablets (<= 768px) */
+      @media (max-width: 768px) {
+        body {
+          font-size: 15px;
         }
-        .editorial-carousel-wrapper {
-          margin-bottom: 60px;
+
+        /* 1. Header */
+        header.site-header {
+          padding: max(20px, env(safe-area-inset-top, 20px)) max(20px, env(safe-area-inset-right, 20px)) 16px max(20px, env(safe-area-inset-left, 20px));
         }
-        .editorial-carousel-track .showcase-card {
-          flex: 0 0 78%;
-          min-width: 220px;
+        .header-links {
+          gap: 20px;
+          font-size: 16px;
         }
-        .editorial-carousel-btn {
-          display: none;
-        }
-        .projects-container {
-          padding: 50px 20px 100px;
-        }
-        .section-category-header {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 8px;
-          margin-bottom: 28px;
+
+        /* 2. Desktop Home Screen */
+        section.desktop-viewport {
+          min-height: 100vh;
+          min-height: 100dvh;
+          height: auto;
+          padding: 80px 20px 40px;
         }
         .desktop-icons-dock {
-          gap: 2.5rem;
+          gap: 2.25rem;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
         }
         .desktop-icon-thumb {
           width: 130px;
           height: 130px;
         }
-        .header-links {
-          gap: 18px;
-          font-size: 16px;
+        .desktop-icon-label {
+          font-size: 13.5px;
+          margin-top: 12px;
+        }
+
+        /* 3. Section Containers */
+        #section-photography,
+        #section-kalulu,
+        #section-caqueret-photo,
+        #section-motion {
+          min-height: auto;
+          padding: 24px 0 40px;
+        }
+
+        .projects-container {
+          padding: 40px max(18px, env(safe-area-inset-right, 18px)) 90px max(18px, env(safe-area-inset-left, 18px));
+        }
+
+        .portfolio-meta-header {
+          font-size: 10.5px;
+          letter-spacing: 0.07em;
+          margin-bottom: 24px;
+          padding-bottom: 16px;
+          flex-wrap: wrap;
+          gap: 6px;
+        }
+
+        .project-editorial-header {
+          margin-bottom: 24px;
+        }
+        .project-editorial-title {
+          font-size: clamp(22px, 6.5vw, 32px);
+          line-height: 1.15;
+          margin-bottom: 10px;
+          word-break: break-word;
+        }
+        .project-editorial-credits {
+          font-size: 10px;
+          gap: 4px;
+        }
+        .project-credit-desc {
+          font-size: 12.5px;
+          line-height: 1.5;
+          margin-top: 4px;
+        }
+
+        /* 4. Grids & Horizontal Carousels */
+        .photo-editorial-grid,
+        .motion-showcase-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+          margin-bottom: 48px;
+        }
+
+        .editorial-carousel-wrapper {
+          margin-bottom: 48px;
+          padding: 4px 4px 16px 4px;
+          scroll-snap-type: x proximity;
+          -webkit-overflow-scrolling: touch;
+        }
+        .editorial-carousel-track {
+          gap: 16px;
+        }
+        .editorial-carousel-track .showcase-card {
+          flex: 0 0 76vw;
+          width: 76vw;
+          max-width: 320px;
+          min-width: 240px;
+          scroll-snap-align: start;
+        }
+        .editorial-carousel-track .showcase-card.video-16-9 {
+          flex: 0 0 86vw;
+          width: 86vw;
+          max-width: 480px;
+          min-width: 270px;
+        }
+        #carousel-motion #item-caqueret {
+          flex: 0 0 76vw;
+          width: 76vw;
+          max-width: 320px;
+          min-width: 240px;
+        }
+
+        /* 5. Card Typography & Details */
+        .showcase-title {
+          font-size: 18px;
+        }
+        .showcase-desc {
+          font-size: 12.5px;
+          line-height: 1.45;
+        }
+        .showcase-youtube-link {
+          font-size: 10.5px;
+          padding: 4px 10px;
+        }
+
+        /* 6. Navigation Controls & Scrollbars */
+        .page-nav-controls {
+          bottom: max(16px, env(safe-area-inset-bottom, 16px));
+          right: max(16px, env(safe-area-inset-right, 16px));
+          gap: 8px;
+        }
+        .nav-arrow-btn {
+          width: 36px;
+          height: 36px;
+        }
+        .nav-arrow-btn svg {
+          width: 16px;
+          height: 16px;
         }
         .editorial-scrollbar {
-          right: 12px;
+          display: none !important;
         }
-        .scrollbar-track {
-          height: 120px;
-          width: 2px;
+
+        /* 7. About Me RTF Modal */
+        .overlay-backdrop {
+          padding: 14px;
         }
-        .scrollbar-label {
-          display: none;
+        .rtf-window {
+          border-radius: 16px;
+          max-height: 88vh;
+          max-height: 88dvh;
+        }
+        .rtf-window-header {
+          padding: 12px 16px;
+        }
+        .rtf-window-body {
+          padding: 18px 18px 24px;
+          gap: 16px;
+          max-height: calc(88dvh - 48px);
+        }
+        .rtf-left-col .location-tag {
+          margin-top: 14px;
+        }
+
+        /* 8. Lightbox */
+        .lightbox-modal {
+          padding: 16px;
+        }
+        .lightbox-close-hint {
+          top: max(16px, env(safe-area-inset-top, 16px));
+          right: max(16px, env(safe-area-inset-right, 16px));
+          font-size: 11px;
+        }
+      }
+
+      /* Compact Mobile (iPhone SE, Small Android <= 480px) */
+      @media (max-width: 480px) {
+        .header-links {
+          gap: 14px;
+          font-size: 14px;
+        }
+        .desktop-icons-dock {
+          gap: 1.5rem;
+        }
+        .desktop-icon-thumb {
+          width: 110px;
+          height: 110px;
+        }
+        .desktop-icon-label {
+          font-size: 12.5px;
+        }
+        .projects-container {
+          padding: 32px max(14px, env(safe-area-inset-right, 14px)) 70px max(14px, env(safe-area-inset-left, 14px));
+        }
+        .editorial-carousel-track .showcase-card {
+          flex: 0 0 80vw;
+          width: 80vw;
+          min-width: 220px;
+        }
+        .editorial-carousel-track .showcase-card.video-16-9 {
+          flex: 0 0 90vw;
+          width: 90vw;
+          min-width: 250px;
+        }
+        #carousel-motion #item-caqueret {
+          flex: 0 0 80vw;
+          width: 80vw;
+          min-width: 220px;
+        }
+      }
+
+      /* Touchscreen Specific Optimizations */
+      @media (hover: none) and (pointer: coarse) {
+        .play-badge-indicator {
+          opacity: 0.96;
+        }
+        .sound-toggle-btn {
+          opacity: 0.96;
+        }
+        .photo-zoom-indicator {
+          opacity: 0.92;
+        }
+        .desktop-icon-item:hover .desktop-icon-thumb {
+          transform: none;
+          filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.12));
+        }
+        .showcase-card:hover {
+          transform: none;
         }
       }
     </style>
@@ -1819,9 +2051,9 @@
                 </div>
 
                 <!-- Video 2: Starterz -->
-                <div class="showcase-card" id="item-starterz">
+                <div class="showcase-card video-16-9" id="item-starterz">
                   <div
-                    class="hover-video-container"
+                    class="hover-video-container ratio-16-9"
                     onmouseenter="playHoverVideo('vid-starterz')"
                     onmouseleave="pauseHoverVideo('vid-starterz')"
                     onclick="toggleVideoPlay('vid-starterz')"
@@ -1873,9 +2105,9 @@
                 </div>
 
                 <!-- Video 3: Malo Gusto -->
-                <div class="showcase-card" id="item-malo-gusto">
+                <div class="showcase-card video-16-9" id="item-malo-gusto">
                   <div
-                    class="hover-video-container"
+                    class="hover-video-container ratio-16-9"
                     onmouseenter="playHoverVideo('vid-malo')"
                     onmouseleave="pauseHoverVideo('vid-malo')"
                     onclick="window.open('https://youtu.be/sXjjTeIAIeg?si=_lGd1OxXgehrGZmW', '_blank', 'noopener,noreferrer')"
@@ -1935,9 +2167,9 @@
                 </div>
 
                 <!-- Video 4: Johan Manzambi × Aston Villa -->
-                <div class="showcase-card" id="item-manzambi">
+                <div class="showcase-card video-16-9" id="item-manzambi">
                   <div
-                    class="hover-video-container"
+                    class="hover-video-container ratio-16-9"
                     onmouseenter="playHoverVideo('vid-manzambi')"
                     onmouseleave="pauseHoverVideo('vid-manzambi')"
                     onclick="toggleVideoPlay('vid-manzambi')"
@@ -2323,6 +2555,20 @@
         { passive: true }
       );
 
+      let touchStartY = 0;
+      let touchStartX = 0;
+
+      window.addEventListener(
+        "touchstart",
+        (e) => {
+          if (e.touches && e.touches.length > 0) {
+            touchStartY = e.touches[0].clientY;
+            touchStartX = e.touches[0].clientX;
+          }
+        },
+        { passive: true }
+      );
+
       // Prevent wheel / touch / keyboard scrolling while locked on the home screen
       window.addEventListener(
         "wheel",
@@ -2339,9 +2585,22 @@
         (e) => {
           if (document.body.classList.contains("home-locked")) {
             const aboutOverlay = document.getElementById("about-overlay");
-            if (!aboutOverlay || !aboutOverlay.classList.contains("active")) {
-              e.preventDefault();
+            if (aboutOverlay && aboutOverlay.classList.contains("active")) {
+              return; // Allow modal internal scrolling
             }
+            if (e.touches && e.touches.length > 0) {
+              const currentY = e.touches[0].clientY;
+              const currentX = e.touches[0].clientX;
+              const diffY = touchStartY - currentY;
+              const diffX = touchStartX - currentX;
+
+              // If swiping up (user intends to scroll down into projects)
+              if (diffY > 30 && Math.abs(diffY) > Math.abs(diffX)) {
+                goToProjects();
+                return;
+              }
+            }
+            e.preventDefault();
           }
         },
         { passive: false }
